@@ -1,148 +1,88 @@
 :root {
     --turquesa: #00afaa;
-    --turquesa-oscuro: #00817d;
     --naranja: #ff9800;
-    --blanco: #ffffff;
+    --dark: #111;
+    --white: #fff;
 }
 
-* {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+* { margin:0; padding:0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background-color: #f0f0f0; color: var(--dark); overflow-x: hidden; }
 
-body {
-    background-color: #0c0c0c;
-    color: white;
-}
-
-/* Navbar Estilo Instagram */
+/* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 3px solid var(--turquesa);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 5%; background: var(--white);
+    position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
-
-.logo { height: 50px; border-radius: 5px; }
-
+.logo { height: 60px; }
 .nav-links { list-style: none; display: flex; }
-.nav-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: 700; }
+.nav-links a { color: var(--dark); text-decoration: none; margin: 0 15px; font-weight: 700; font-size: 0.9rem; }
+.btn-nav { background: var(--turquesa); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 900; font-size: 0.8rem; transition: 0.3s; }
+.btn-nav:hover { background: var(--naranja); }
 
-.btn-nav {
-    background: var(--naranja);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 900;
+/* Hero Principal */
+.hero-main {
+    height: 60vh;
+    background: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1500&q=80');
+    background-size: cover; background-position: center;
+    position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
 }
+.hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); }
+.hero-content { position: relative; z-index: 5; }
+.hero-content h1 { font-size: 4rem; font-weight: 900; text-shadow: 3px 3px 0px var(--dark); }
+.text-turquesa { color: var(--turquesa); }
 
-/* Hero Section con Fondo Llamativo */
-.hero {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1595111397025-10497672224b?auto=format&fit=crop&w=1500&q=80'); /* Cambiar por tu foto de Medellín */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, rgba(0, 175, 170, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-}
-
-.tagline {
-    background: var(--naranja);
-    padding: 5px 15px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.hero-content h1 {
-    font-size: 5rem;
-    font-weight: 900;
-    line-height: 1;
-    margin: 20px 0;
-    text-shadow: 4px 4px 0px rgba(0,0,0,0.5);
-}
-
+/* Grid de Tours */
+.tours-section { padding: 60px 5%; background: #fff; }
+.title-section { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 40px; }
 .text-orange { color: var(--naranja); }
 
-.price-badge {
-    background: var(--blanco);
-    color: #000;
-    display: inline-block;
-    padding: 10px 30px;
-    transform: rotate(-2deg);
-    margin-bottom: 20px;
-}
-
-.price-badge span {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--turquesa-oscuro);
-}
-
-.btn-main {
-    display: inline-block;
-    background: var(--naranja);
-    color: white;
-    padding: 20px 40px;
-    font-size: 1.5rem;
-    font-weight: 900;
-    text-decoration: none;
-    border-radius: 50px;
-    box-shadow: 0 10px 0px #c67600;
-    transition: 0.2s;
-}
-
-.btn-main:active { transform: translateY(5px); box-shadow: 0 5px 0px #c67600; }
-
-/* Inclusiones (Iconos) */
-.inclusiones {
-    background: #111;
-    padding: 40px 0;
-    border-top: 5px solid var(--naranja);
-}
-
-.inc-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
 
-.inc-item {
-    text-align: center;
-    color: var(--turquesa);
+/* Tour Card Estilo Flyer */
+.tour-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    border-bottom: 8px solid var(--turquesa);
+}
+.tour-card:hover { transform: translateY(-10px); }
+
+.tour-img {
+    height: 250px; background-size: cover; background-position: center;
+    position: relative;
+}
+.tour-tag {
+    position: absolute; top: 15px; left: 15px;
+    background: var(--naranja); color: white;
+    padding: 5px 15px; font-weight: 900; font-size: 0.8rem;
+    border-radius: 5px;
 }
 
-.inc-item i { font-size: 2.5rem; margin-bottom: 10px; color: var(--blanco); }
-
-/* WhatsApp */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px; right: 30px;
-    background: #25d366;
-    width: 70px; height: 70px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 35px; color: white;
-    z-index: 2000;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+.tour-info { padding: 25px; text-align: center; }
+.tour-info h3 { font-weight: 900; font-size: 1.5rem; margin-bottom: 10px; }
+.tour-price {
+    font-size: 2rem; font-weight: 900; color: var(--turquesa);
+    margin-bottom: 5px;
 }
+.tour-price span { font-size: 1rem; color: #777; }
+.tour-icons { margin: 15px 0; font-size: 1.2rem; color: #ccc; }
+.tour-icons i { margin: 0 8px; }
+
+.btn-card {
+    display: block; background: var(--dark); color: white;
+    padding: 12px; text-decoration: none; font-weight: 900;
+    border-radius: 10px; transition: 0.3s;
+}
+.btn-card:hover { background: var(--naranja); }
+
+/* Footer */
+footer { background: var(--dark); color: white; padding: 40px; text-align: center; }
+.social { margin-top: 20px; font-size: 2rem; }
+.social a { color: var(--turquesa); margin: 0 10px; }
