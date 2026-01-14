@@ -3,89 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xiabi Travels | Tu Agencia de Viajes</title>
+    <title>Xiabi Travels | ¡Reserva tu Aventura!</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
+    <a href="https://wa.me/8298362020" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <img src="logo-xiabi.png" alt="Xiabi Travels"> </div>
+            <img src="logoxiabi.jpeg" class="logo" alt="Xiabi Travels">
             <ul class="nav-links">
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Destinos</a></li>
-                <li><a href="#">Paquetes</a></li>
-                <li><a href="#">Cruceros</a></li>
+                <li><a href="#">Tours</a></li>
+                <li><a href="#">Ofertas</a></li>
             </ul>
-            <a href="https://wa.me/tu-numero" class="btn-nav">Cotizar ahora</a>
+            <a href="tel:8298362020" class="btn-nav">LLAMAR AHORA</a>
         </nav>
     </header>
 
     <section class="hero">
+        <div class="overlay"></div>
         <div class="hero-content">
-            <h1>Tu próxima aventura comienza aquí</h1>
-            <p>Descubre destinos increíbles con la asesoría experta de Xiabi Travels.</p>
-            <div class="search-bar">
-                <input type="text" placeholder="¿A dónde quieres ir?">
-                <button class="btn-search">Explorar</button>
+            <span class="tagline">¡TU PRÓXIMO DESTINO TE ESPERA!</span>
+            <h1>VIAJA A <span class="text-orange">MEDELLÍN</span></h1>
+            <div class="price-badge">
+                <p>DESDE <span>US$645</span> P/P</p>
             </div>
+            <p class="promo-text">Reserva con solo <strong>US$250</strong></p>
+            <a href="#" class="btn-main">RESERVAR AHORA</a>
         </div>
     </section>
 
-    <section class="services">
-        <div class="service-card">
-            <span class="icon">🏖️</span>
-            <h3>Playa y Sol</h3>
-        </div>
-        <div class="service-card">
-            <span class="icon">🏰</span>
-            <h3>Europa</h3>
-        </div>
-        <div class="service-card">
-            <span class="icon">🚢</span>
-            <h3>Cruceros</h3>
-        </div>
-        <div class="service-card">
-            <span class="icon">✈️</span>
-            <h3>Vuelos</h3>
+    <section class="inclusiones">
+        <div class="inc-grid">
+            <div class="inc-item"><i class="fas fa-plane"></i><p>Vuelos</p></div>
+            <div class="inc-item"><i class="fas fa-hotel"></i><p>Hotel</p></div>
+            <div class="inc-item"><i class="fas fa-utensils"></i><p>Desayunos</p></div>
+            <div class="inc-item"><i class="fas fa-shield-alt"></i><p>Seguro</p></div>
+            <div class="inc-item"><i class="fas fa-bus"></i><p>Traslados</p></div>
         </div>
     </section>
-
-    <section class="destinations">
-        <h2 class="section-title">Destinos Favoritos</h2>
-        <div class="grid-destinos">
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=60');"></div>
-                <div class="card-body">
-                    <h4>Punta Cana</h4>
-                    <p>Todo incluido en el paraíso.</p>
-                    <span class="price">Desde $499</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=500&q=60');"></div>
-                <div class="card-body">
-                    <h4>Europa Soñada</h4>
-                    <p>Madrid, París y Roma.</p>
-                    <span class="price">Desde $1,250</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&w=500&q=60');"></div>
-                <div class="card-body">
-                    <h4>Crucero Caribe</h4>
-                    <p>Diversión para toda la familia.</p>
-                    <span class="price">Desde $680</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Xiabi Travels. Síguenos en <a href="https://www.instagram.com/xiabitravels/" target="_blank">@xiabitravels</a></p>
-    </footer>
 
 </body>
 </html>
