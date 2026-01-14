@@ -1,183 +1,148 @@
 :root {
     --turquesa: #00afaa;
+    --turquesa-oscuro: #00817d;
     --naranja: #ff9800;
     --blanco: #ffffff;
-    --oscuro: #333333;
-    --gris-claro: #f4f4f4;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-/* Navegación */
+body {
+    background-color: #0c0c0c;
+    color: white;
+}
+
+/* Navbar Estilo Instagram */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
-    background: var(--blanco);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 5%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 3px solid var(--turquesa);
 }
 
-.logo img {
-    height: 50px;
-}
+.logo { height: 50px; border-radius: 5px; }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin: 0 20px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--oscuro);
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--turquesa);
-}
+.nav-links { list-style: none; display: flex; }
+.nav-links a { color: white; text-decoration: none; margin: 0 15px; font-weight: 700; }
 
 .btn-nav {
     background: var(--naranja);
     color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 8px 20px;
+    border-radius: 5px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 900;
 }
 
-/* Hero Section */
+/* Hero Section con Fondo Llamativo */
 .hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1500&q=80');
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1595111397025-10497672224b?auto=format&fit=crop&w=1500&q=80'); /* Cambiar por tu foto de Medellín */
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(0, 175, 170, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
     text-align: center;
-    color: white;
+}
+
+.tagline {
+    background: var(--naranja);
+    padding: 5px 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 20px 0;
+    text-shadow: 4px 4px 0px rgba(0,0,0,0.5);
 }
 
-.search-bar {
-    background: white;
-    padding: 10px;
-    border-radius: 50px;
-    margin-top: 30px;
-    display: inline-flex;
-}
+.text-orange { color: var(--naranja); }
 
-.search-bar input {
-    border: none;
-    padding: 10px 20px;
-    width: 300px;
-    border-radius: 50px;
-    outline: none;
-}
-
-.btn-search {
-    background: var(--turquesa);
-    color: white;
-    border: none;
+.price-badge {
+    background: var(--blanco);
+    color: #000;
+    display: inline-block;
     padding: 10px 30px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: bold;
+    transform: rotate(-2deg);
+    margin-bottom: 20px;
 }
 
-/* Servicios */
-.services {
+.price-badge span {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--turquesa-oscuro);
+}
+
+.btn-main {
+    display: inline-block;
+    background: var(--naranja);
+    color: white;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 0px #c67600;
+    transition: 0.2s;
+}
+
+.btn-main:active { transform: translateY(5px); box-shadow: 0 5px 0px #c67600; }
+
+/* Inclusiones (Iconos) */
+.inclusiones {
+    background: #111;
+    padding: 40px 0;
+    border-top: 5px solid var(--naranja);
+}
+
+.inc-grid {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: -50px;
-    padding: 0 10%;
-}
-
-.service-card {
-    background: white;
-    padding: 20px;
-    width: 150px;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    border-bottom: 4px solid var(--turquesa);
-}
-
-/* Destinos */
-.destinations {
-    padding: 80px 10%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-    color: var(--oscuro);
-}
-
-.grid-destinos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    flex-wrap: wrap;
     gap: 30px;
 }
 
-.card {
-    background: var(--gris-claro);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.card-img {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.price {
-    display: block;
-    margin-top: 10px;
-    color: var(--naranja);
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* Footer */
-footer {
-    background: var(--turquesa);
-    color: white;
+.inc-item {
     text-align: center;
-    padding: 40px;
-    margin-top: 50px;
+    color: var(--turquesa);
 }
 
-footer a {
-    color: var(--naranja);
-    text-decoration: none;
-    font-weight: bold;
+.inc-item i { font-size: 2.5rem; margin-bottom: 10px; color: var(--blanco); }
+
+/* WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    background: #25d366;
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 35px; color: white;
+    z-index: 2000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
