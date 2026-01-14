@@ -3,84 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xiabi Travels | Explora el Mundo</title>
+    <title>Xiabi Travels | Agencia de Viajes</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
+    <a href="https://wa.me/8298362020" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <header>
         <nav class="navbar">
             <img src="logoxiabi.jpeg" class="logo" alt="Xiabi Travels">
-            <ul class="nav-links">
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-list">
                 <li><a href="#">INICIO</a></li>
                 <li><a href="#tours">TOURS</a></li>
                 <li><a href="#">CRUCEROS</a></li>
-                <li><a href="#">CONTACTO</a></li>
+                <li><a href="https://www.instagram.com/xiabitravels/" target="_blank">INSTAGRAM</a></li>
             </ul>
-            <a href="https://wa.me/8298362020" class="btn-nav">¡COTIZA POR WHATSAPP!</a>
+            <a href="https://wa.me/8298362020" class="btn-nav hide-mobile">COTIZAR AHORA</a>
         </nav>
     </header>
 
-    <section class="hero-main">
+    <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>VIAJA CON <span class="text-turquesa">XIABI</span></h1>
-            <p>Las mejores ofertas en tours internacionales y locales</p>
-            <div class="btn-group">
-                <a href="#tours" class="btn-primary">VER DESTINOS</a>
-            </div>
+            <span class="badge-promo">OFERTAS 2026</span>
+            <h1>EL MUNDO A TU <br><span class="text-orange">ALCANCE</span></h1>
+            <p>Experiencias diseñadas por expertos en viajes.</p>
+            <a href="#tours" class="btn-main">VER EXCURSIONES</a>
         </div>
     </section>
 
-    <section id="tours" class="tours-section">
-        <h2 class="title-section">PRÓXIMAS <span class="text-orange">EXCURSIONES</span></h2>
+    <section id="tours" class="tours-container">
+        <h2 class="section-title">NUESTROS <span class="text-turquesa">TOURS</span></h2>
         
         <div class="tours-grid">
             
             <div class="tour-card">
                 <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1595111397025-10497672224b?auto=format&fit=crop&w=600&q=80');">
-                    <div class="tour-tag">5 DÍAS / 4 NOCHES</div>
+                    <div class="tour-badge">MÁS VENDIDO</div>
                 </div>
-                <div class="tour-info">
+                <div class="tour-body">
                     <h3>TOUR MEDELLÍN</h3>
+                    <p class="tour-duration">5 Días / 4 Noches</p>
                     <div class="tour-price">US$645 <span>P/P</span></div>
-                    <p>Reserva con solo US$250</p>
                     <div class="tour-icons">
                         <i class="fas fa-plane"></i> <i class="fas fa-hotel"></i> <i class="fas fa-utensils"></i>
                     </div>
-                    <a href="#" class="btn-card">MÁS DETALLES</a>
+                    <a href="https://wa.me/8298362020" class="btn-tour">RESERVAR</a>
                 </div>
             </div>
 
             <div class="tour-card">
                 <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80');">
-                    <div class="tour-tag">FULL DAY</div>
+                    <div class="tour-badge">FULL DAY</div>
                 </div>
-                <div class="tour-info">
-                    <h3>PUNTA CANA RELAX</h3>
-                    <div class="tour-price">US$120 <span>P/P</span></div>
-                    <p>Todo incluido + Transporte</p>
+                <div class="tour-body">
+                    <h3>ISLA SAONA</h3>
+                    <p class="tour-duration">Pasadía Premium</p>
+                    <div class="tour-price">US$95 <span>P/P</span></div>
                     <div class="tour-icons">
-                        <i class="fas fa-bus"></i> <i class="fas fa-cocktail"></i> <i class="fas fa-umbrella-beach"></i>
+                        <i class="fas fa-bus"></i> <i class="fas fa-shuttle-van"></i> <i class="fas fa-cocktail"></i>
                     </div>
-                    <a href="#" class="btn-card">MÁS DETALLES</a>
+                    <a href="https://wa.me/8298362020" class="btn-tour">RESERVAR</a>
                 </div>
             </div>
 
-            <div class="tour-card destaque">
-                <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=600&q=80');">
-                    <div class="tour-tag">15 DÍAS</div>
+            <div class="tour-card">
+                <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80');">
+                    <div class="tour-badge">EUROPA</div>
                 </div>
-                <div class="tour-info">
-                    <h3>EUROPA SOÑADA</h3>
-                    <div class="tour-price">US$2,450 <span>P/P</span></div>
-                    <p>Madrid, París, Roma y Venecia</p>
+                <div class="tour-body">
+                    <h3>EUROPA MÁGICA</h3>
+                    <p class="tour-duration">12 Días / 11 Noches</p>
+                    <div class="tour-price">US$2,150 <span>P/P</span></div>
                     <div class="tour-icons">
-                        <i class="fas fa-plane"></i> <i class="fas fa-map-marked-alt"></i> <i class="fas fa-train"></i>
+                        <i class="fas fa-plane"></i> <i class="fas fa-map-marked-alt"></i> <i class="fas fa-briefcase-medical"></i>
                     </div>
-                    <a href="#" class="btn-card">MÁS DETALLES</a>
+                    <a href="https://wa.me/8298362020" class="btn-tour">RESERVAR</a>
                 </div>
             </div>
 
@@ -88,12 +94,19 @@
     </section>
 
     <footer>
-        <p>XIABI TRAVELS &copy; 2026 - TODO LO QUE NECESITAS PARA VIAJAR</p>
-        <div class="social">
+        <p><strong>XIABI TRAVELS</strong> | RNC 123-45678-9</p>
+        <div class="social-footer">
             <a href="https://www.instagram.com/xiabitravels/"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
         </div>
     </footer>
 
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
