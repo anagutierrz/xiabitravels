@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xiabi Travels | Agencia de Viajes</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Xiabi Travels | Explora el Mundo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,96 +16,177 @@
 
     <header>
         <nav class="navbar">
-            <img src="logoxiabi.jpeg" class="logo" alt="Xiabi Travels">
+            <div class="logo-container">
+                <img src="logoxiabi.jpeg" alt="Xiabi Travels" class="logo">
+            </div>
+            
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
+
             <ul class="nav-links" id="nav-list">
-                <li><a href="#">INICIO</a></li>
-                <li><a href="#tours">TOURS</a></li>
-                <li><a href="#">CRUCEROS</a></li>
-                <li><a href="https://www.instagram.com/xiabitravels/" target="_blank">INSTAGRAM</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#tours">Próximos Viajes</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="https://www.instagram.com/xiabitravels/" target="_blank">Instagram</a></li>
             </ul>
+            
             <a href="https://wa.me/8298362020" class="btn-nav hide-mobile">COTIZAR AHORA</a>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="badge-promo">OFERTAS 2026</span>
-            <h1>EL MUNDO A TU <br><span class="text-orange">ALCANCE</span></h1>
-            <p>Experiencias diseñadas por expertos en viajes.</p>
-            <a href="#tours" class="btn-main">VER EXCURSIONES</a>
+            <span class="badge-vibe">LÍDERES EN TURISMO</span>
+            <h1>Liderazgo técnico, <br><span class="text-orange">resultados que trascienden.</span></h1>
+            <p>Diseñamos experiencias personalizadas con salidas garantizadas y asesoría experta.</p>
+            <div class="hero-btns">
+                <a href="#tours" class="btn-primary">Explorar Tours</a>
+                <a href="#contacto" class="btn-secondary">Contactar un Agente</a>
+            </div>
         </div>
     </section>
 
-    <section id="tours" class="tours-container">
-        <h2 class="section-title">NUESTROS <span class="text-turquesa">TOURS</span></h2>
-        
-        <div class="tours-grid">
-            
-            <div class="tour-card">
-                <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1595111397025-10497672224b?auto=format&fit=crop&w=600&q=80');">
-                    <div class="tour-badge">MÁS VENDIDO</div>
-                </div>
-                <div class="tour-body">
-                    <h3>TOUR MEDELLÍN</h3>
-                    <p class="tour-duration">5 Días / 4 Noches</p>
-                    <div class="tour-price">US$645 <span>P/P</span></div>
-                    <div class="tour-icons">
-                        <i class="fas fa-plane"></i> <i class="fas fa-hotel"></i> <i class="fas fa-utensils"></i>
-                    </div>
-                    <a href="https://wa.me/8298362020" class="btn-tour">RESERVAR</a>
-                </div>
+    <section class="tours-section" id="tours">
+        <div class="container">
+            <div class="section-header">
+                <h2>ENCUENTRA TU <span class="text-turquesa">PRÓXIMA AVENTURA</span></h2>
+                <p>Selecciona tu región de interés y reserva tu cupo hoy mismo.</p>
             </div>
 
-            <div class="tour-card">
-                <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80');">
-                    <div class="tour-badge">FULL DAY</div>
-                </div>
-                <div class="tour-body">
-                    <h3>ISLA SAONA</h3>
-                    <p class="tour-duration">Pasadía Premium</p>
-                    <div class="tour-price">US$95 <span>P/P</span></div>
-                    <div class="tour-icons">
-                        <i class="fas fa-bus"></i> <i class="fas fa-shuttle-van"></i> <i class="fas fa-cocktail"></i>
-                    </div>
-                    <a href="https://wa.me/8298362020" class="btn-tour">RESERVAR</a>
-                </div>
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-target="all">Todos</button>
+                <button class="filter-btn" data-target="europa">Europa</button>
+                <button class="filter-btn" data-target="caribe">Caribe</button>
+                <button class="filter-btn" data-target="sudamerica">Sudamérica</button>
             </div>
 
-            <div class="tour-card">
-                <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80');">
-                    <div class="tour-badge">EUROPA</div>
-                </div>
-                <div class="tour-body">
-                    <h3>EUROPA MÁGICA</h3>
-                    <p class="tour-duration">12 Días / 11 Noches</p>
-                    <div class="tour-price">US$2,150 <span>P/P</span></div>
-                    <div class="tour-icons">
-                        <i class="fas fa-plane"></i> <i class="fas fa-map-marked-alt"></i> <i class="fas fa-briefcase-medical"></i>
+            <div class="tours-grid" id="tours-grid">
+                
+                <div class="tour-card" data-category="sudamerica">
+                    <div class="tour-img-wrapper">
+                        <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1595111397025-10497672224b?auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="tour-date-badge">SALIDA: 15 MARZO 2026</div>
+                        <div class="tour-tag-price">US$645</div>
                     </div>
-                    <a href="https://wa.me/8298362020" class="btn-tour">RESERVAR</a>
+                    <div class="tour-content">
+                        <div class="country-tags">
+                            <span>🇨🇴 Colombia</span>
+                        </div>
+                        <h3>Medellín & Guatapé</h3>
+                        <p class="itinerary-summary"><i class="fas fa-map-marker-alt"></i> Medellín, Comuna 13, Peñol, Jardín.</p>
+                        <div class="tour-specs">
+                            <span><i class="far fa-clock"></i> 5 Días</span>
+                            <span><i class="far fa-calendar-alt"></i> Salida Grupal</span>
+                        </div>
+                        <div class="urgency-tag">⚠️ ¡Solo quedan 4 cupos!</div>
+                        <a href="https://wa.me/8298362020?text=Hola! Quiero info del Tour a Medellin" class="btn-reserve">Reservar Cupo</a>
+                    </div>
                 </div>
-            </div>
 
+                <div class="tour-card" data-category="europa">
+                    <div class="tour-img-wrapper">
+                        <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="tour-date-badge">SALIDA: 10 MAYO 2026</div>
+                        <div class="tour-tag-price">US$2,450</div>
+                    </div>
+                    <div class="tour-content">
+                        <div class="country-tags">
+                            <span>🇪🇸 España</span> <span>🇫🇷 Francia</span> <span>🇮🇹 Italia</span>
+                        </div>
+                        <h3>Europa Soñada 2026</h3>
+                        <p class="itinerary-summary"><i class="fas fa-map-marker-alt"></i> Madrid, París, Roma, Venecia, Florencia.</p>
+                        <div class="tour-specs">
+                            <span><i class="far fa-clock"></i> 15 Días</span>
+                            <span><i class="far fa-calendar-alt"></i> Todo Incluido</span>
+                        </div>
+                        <div class="urgency-tag-safe">✅ Cupos Disponibles</div>
+                        <a href="https://wa.me/8298362020?text=Hola! Info para Europa" class="btn-reserve">Reservar Cupo</a>
+                    </div>
+                </div>
+
+                <div class="tour-card" data-category="caribe">
+                    <div class="tour-img-wrapper">
+                        <div class="tour-img" style="background-image: url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="tour-date-badge">TODOS LOS FINES DE SEMANA</div>
+                        <div class="tour-tag-price">US$95</div>
+                    </div>
+                    <div class="tour-content">
+                        <div class="country-tags">
+                            <span>🇩🇴 Rep. Dominicana</span>
+                        </div>
+                        <h3>Isla Saona Premium</h3>
+                        <p class="itinerary-summary"><i class="fas fa-map-marker-alt"></i> Catamarán, Almuerzo Buffet, Open Bar.</p>
+                        <div class="tour-specs">
+                            <span><i class="far fa-clock"></i> Full Day</span>
+                            <span><i class="far fa-calendar-alt"></i> Local</span>
+                        </div>
+                        <div class="urgency-tag">⚠️ Pocos cupos disponibles</div>
+                        <a href="https://wa.me/8298362020?text=Hola! Info para Isla Saona" class="btn-reserve">Reservar Cupo</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p><strong>XIABI TRAVELS</strong> | RNC 123-45678-9</p>
-        <div class="social-footer">
-            <a href="https://www.instagram.com/xiabitravels/"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <footer id="contacto">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <img src="logoxiabi.jpeg" alt="Xiabi Travels" class="footer-logo">
+                <p>Xiabi Travels: Transformando sueños en itinerarios inolvidables. Expertos en asesoría migratoria y gestión de viajes.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <a href="#">Sobre Nosotros</a>
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Políticas de Cancelación</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-phone"></i> (829) 836-2020</p>
+                <p><i class="fas fa-envelope"></i> info@xiabitravels.com</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/xiabitravels/"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Xiabi Travels | Liderazgo Técnico, Resultados que Trascienden.</p>
         </div>
     </footer>
 
     <script>
+        // Menú Móvil
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
         menuToggle.addEventListener('click', () => {
             navList.classList.toggle('active');
+        });
+
+        // Filtros Dinámicos de Tours
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const tourCards = document.querySelectorAll('.tour-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Cambiar botón activo
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                btn.classList.add('active');
+
+                const target = btn.getAttribute('data-target');
+
+                tourCards.forEach(card => {
+                    if (target === 'all' || card.getAttribute('data-category') === target) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
 </body>
