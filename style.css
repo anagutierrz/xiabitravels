@@ -1,70 +1,77 @@
-:root {
-    --turquesa: #00afaa;
-    --naranja: #ff9800;
-    --oscuro: #1a1a1a;
-    --blanco: #ffffff;
-    --gris: #f8f9fa;
+/* Barra de Filtros */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-
-/* Navegación */
-.navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 10px 5%; background: var(--blanco);
-    position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-.logo { height: 55px; }
-.nav-links { list-style: none; display: flex; }
-.nav-links a { text-decoration: none; color: var(--oscuro); margin: 0 15px; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
-.nav-links a:hover { color: var(--turquesa); }
-.btn-nav { background: var(--naranja); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 900; box-shadow: 0 4px 0 #cc7a00; }
-
-/* Hero Section */
-.hero {
-    height: 70vh; background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80');
-    background-size: cover; background-position: center;
-    position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
-}
-.hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(0,175,170,0.6), rgba(0,0,0,0.7)); }
-.hero-content { position: relative; z-index: 10; padding: 0 20px; }
-.badge-promo { background: var(--naranja); padding: 5px 15px; font-weight: 900; border-radius: 5px; font-size: 0.8rem; }
-.hero-content h1 { font-size: 4.5rem; font-weight: 900; line-height: 1.1; margin: 15px 0; }
-.text-orange { color: var(--naranja); text-shadow: 2px 2px 0 #000; }
-.btn-main { display: inline-block; background: var(--blanco); color: var(--turquesa); padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1.2rem; transition: 0.3s; }
-
-/* Tours Grid */
-.tours-container { padding: 80px 5%; background: var(--gris); }
-.section-title { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 50px; }
-.text-turquesa { color: var(--turquesa); }
-.tours-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-/* Tour Card (Estilo Flyer Instagram) */
-.tour-card { background: var(--blanco); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: 0.3s; border-bottom: 6px solid var(--turquesa); }
-.tour-card:hover { transform: translateY(-10px); }
-.tour-img { height: 230px; background-size: cover; background-position: center; position: relative; }
-.tour-badge { position: absolute; top: 15px; right: 15px; background: var(--turquesa); color: white; padding: 5px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 900; }
-.tour-body { padding: 25px; text-align: center; }
-.tour-duration { color: #888; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
-.tour-price { font-size: 2.2rem; font-weight: 900; color: var(--oscuro); margin: 10px 0; }
-.tour-price span { font-size: 1rem; color: #aaa; }
-.tour-icons { margin: 15px 0; color: #ddd; font-size: 1.2rem; }
-.btn-tour { display: block; background: var(--naranja); color: white; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: 900; transition: 0.3s; }
-
-/* WhatsApp */
-.whatsapp-float { position: fixed; bottom: 25px; right: 25px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; color: white; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-
-/* RESPONSIVE MÓVIL */
-@media (max-width: 768px) {
-    .menu-toggle { display: block; font-size: 1.5rem; cursor: pointer; }
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 75px; left: 0; width: 100%; background: var(--blanco); padding: 20px; border-bottom: 4px solid var(--turquesa); }
-    .nav-links.active { display: flex; }
-    .hide-mobile { display: none; }
-    .hero-content h1 { font-size: 2.8rem; }
-    .hero { height: 60vh; }
-    .tours-grid { grid-template-columns: 1fr; }
+.filter-btn {
+    padding: 10px 25px;
+    border: 2px solid var(--turquesa);
+    background: transparent;
+    color: var(--turquesa);
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-footer { background: var(--oscuro); color: white; padding: 50px; text-align: center; }
-.social-footer { margin-top: 20px; font-size: 1.8rem; }
-.social-footer a { color: var(--turquesa); margin: 0 15px; }
+.filter-btn.active, .filter-btn:hover {
+    background: var(--turquesa);
+    color: white;
+}
+
+/* Etiquetas de Países y Fechas */
+.tour-date-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--naranja);
+    color: white;
+    padding: 8px;
+    font-weight: 900;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.countries-list {
+    margin-bottom: 10px;
+}
+
+.countries-list span {
+    background: #e0f4f3;
+    color: var(--turquesa);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin: 2px;
+    display: inline-block;
+}
+
+.itinerary-preview {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+.spots-left {
+    color: #e63946;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+/* Efecto Hover Robusto */
+.tour-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tour-card:hover {
+    transform: scale(1.03);
+    border-bottom: 8px solid var(--naranja);
+}
