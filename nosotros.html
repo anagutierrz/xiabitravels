@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nosotros | Xiabi Travels</title>
+    <title>Quiénes Somos | Xiabi Travels</title>
+    
+    <meta name="description" content="Conoce la misión, visión y valores de Xiabi Travels. Nuestra pasión es gestionar tu aventura con excelencia y seguridad.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -18,103 +21,128 @@
         }
     </script>
     <style>
-        .hero-mini { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; }
-        .valor-card:hover { border-color: #00afaa; transform: translateY(-5px); }
-        .google-feedback { background: #f8f9fa; border-radius: 2rem; border-left: 8px solid #4285F4; }
+        .card-xiabi { 
+            background: white; 
+            border-radius: 2.5rem; 
+            border: 1px solid #f1f5f9; 
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#00afaa 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            opacity: 0.4;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-['Poppins'] text-oscuro overflow-x-hidden">
 
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html"><img src="logoxiabi.jpeg" alt="Xiabi Travels Logo" class="h-9 md:h-12 rounded"></a>
+            <a href="index.html">
+                <img src="logoxiabi.jpeg" alt="Xiabi Travels Logo" class="h-10 md:h-12 rounded">
+            </a>
             <div class="flex items-center gap-6">
                 <a href="index.html" class="text-[10px] md:text-xs font-black uppercase tracking-widest hover:text-turquesa transition">Tours</a>
-                <a href="https://wa.me/8298362020" class="bg-oscuro text-white px-5 py-2 rounded-full font-black text-[10px] uppercase">Chat</a>
+                <a href="https://wa.me/8298362020" class="bg-oscuro text-white px-5 py-2 rounded-full font-black text-[10px] uppercase shadow-lg shadow-black/10">Chat</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero-mini h-[35vh] flex items-center justify-center text-center text-white px-6">
-        <div>
-            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter italic">Nuestra <span class="text-turquesa">Esencia</span></h1>
+    <header class="relative py-20 px-6 overflow-hidden">
+        <div class="absolute inset-0 hero-pattern -z-10"></div>
+        <div class="max-w-7xl mx-auto text-center">
+            <span class="text-turquesa font-black text-[10px] uppercase tracking-[0.4em] mb-4 block">Más que una agencia</span>
+            <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter italic leading-none">Nuestra <br><span class="text-turquesa">Historia</span></h1>
         </div>
     </header>
 
-    <section class="py-20 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="space-y-6">
-            <span class="bg-turquesa/10 text-turquesa px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">El camino</span>
-            <h2 class="text-3xl font-black uppercase italic">Misión</h2>
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                Facilitar experiencias de viaje excepcionales a través de una planificación estratégica y personalizada, garantizando seguridad, confort y los mejores destinos para nuestra comunidad de viajeros en República Dominicana y el mundo.
-            </p>
-        </div>
-        <div class="space-y-6">
-            <span class="bg-naranja/10 text-naranja px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">El horizonte</span>
-            <h2 class="text-3xl font-black uppercase italic">Visión</h2>
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                Convertirnos en la agencia de viajes líder y de mayor confianza, reconocida por nuestra excelencia operativa, innovación en destinos y por crear recuerdos que trascienden el tiempo en cada viajero que confía en nosotros.
-            </p>
-        </div>
-    </section>
-
-    <section class="py-20 bg-oscuro text-white px-6">
-        <div class="max-w-7xl mx-auto text-center mb-16">
-            <h2 class="text-3xl font-black uppercase italic">Nuestros <span class="text-turquesa">Valores</span></h2>
-        </div>
-        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="valor-card p-8 border border-white/10 rounded-3xl transition duration-300">
-                <h4 class="font-black text-turquesa uppercase mb-4 tracking-widest italic">Integridad</h4>
-                <p class="text-gray-400 text-[11px] leading-relaxed">Actuamos con honestidad y transparencia en cada reserva y asesoría brindada.</p>
-            </div>
-            <div class="valor-card p-8 border border-white/10 rounded-3xl transition duration-300">
-                <h4 class="font-black text-turquesa uppercase mb-4 tracking-widest italic">Compromiso</h4>
-                <p class="text-gray-400 text-[11px] leading-relaxed">Nos dedicamos al 100% para que tu única preocupación sea disfrutar el viaje.</p>
-            </div>
-            <div class="valor-card p-8 border border-white/10 rounded-3xl transition duration-300">
-                <h4 class="font-black text-turquesa uppercase mb-4 tracking-widest italic">Excelencia</h4>
-                <p class="text-gray-400 text-[11px] leading-relaxed">Buscamos los más altos estándares en logística y atención al cliente.</p>
-            </div>
-            <div class="valor-card p-8 border border-white/10 rounded-3xl transition duration-300">
-                <h4 class="font-black text-turquesa uppercase mb-4 tracking-widest italic">Pasión</h4>
-                <p class="text-gray-400 text-[11px] leading-relaxed">Viajar es nuestra vida, y transmitimos esa alegría en cada experiencia diseñada.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-6 max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-            <div class="flex justify-center gap-1 mb-4">
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-                <i class="fas fa-star text-yellow-400"></i>
-            </div>
-            <h2 class="text-2xl font-black uppercase italic">Lo que dicen nuestros <span class="text-turquesa">Viajeros</span></h2>
-        </div>
-
-        <div class="google-feedback p-8 md:p-12 shadow-xl">
-            <div class="flex items-center gap-4 mb-6">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="w-8" alt="Google">
-                <span class="font-black text-xs uppercase tracking-tighter text-gray-400">Opinión verificada en Google</span>
-            </div>
-            <blockquote class="text-lg md:text-xl font-medium italic text-gray-700 leading-relaxed">
-                "Una experiencia inolvidable. La organización de Xiabi Travels superó mis expectativas, cuidaron cada detalle de mi viaje a Medellín. ¡Altamente recomendados!"
-            </blockquote>
-            <div class="mt-8 flex items-center justify-between">
-                <div>
-                    <p class="font-black uppercase text-xs">Opiniones Reales</p>
-                    <p class="text-[10px] text-gray-400 uppercase">Respaldo de nuestra comunidad</p>
+    <section class="py-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card-xiabi p-10 md:p-14">
+                <div class="w-14 h-14 bg-turquesa text-white rounded-2xl flex items-center justify-center mb-8 text-2xl shadow-lg shadow-turquesa/20">
+                    <i class="fas fa-paper-plane"></i>
                 </div>
-                <a href="https://share.google/NJzPOwqxtJUDRroZc" target="_blank" class="text-turquesa font-black text-[10px] uppercase border-b-2 border-turquesa pb-1">Ver en Google Maps</a>
+                <h2 class="text-3xl font-black uppercase italic mb-6">Misión</h2>
+                <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                    Facilitar experiencias de viaje excepcionales a través de una planificación estratégica y personalizada, garantizando seguridad, confort y los mejores destinos para nuestra comunidad de viajeros en República Dominicana y el mundo.
+                </p>
+            </div>
+
+            <div class="card-xiabi p-10 md:p-14 border-t-8 border-t-naranja">
+                <div class="w-14 h-14 bg-naranja text-white rounded-2xl flex items-center justify-center mb-8 text-2xl shadow-lg shadow-naranja/20">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h2 class="text-3xl font-black uppercase italic mb-6">Visión</h2>
+                <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+                    Convertirnos en la agencia de viajes líder y de mayor confianza, reconocida por nuestra excelencia operativa, innovación en destinos y por crear recuerdos que trascienden el tiempo en cada viajero que confía en nosotros.
+                </p>
             </div>
         </div>
     </section>
 
-    <footer class="bg-white py-12 text-center border-t border-gray-100">
-        <img src="logoxiabi.jpeg" class="h-8 mx-auto mb-6 rounded">
-        <p class="text-[10px] font-black uppercase tracking-[0.4em] text-gray-300">Xiabi Travels © 2026</p>
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black uppercase italic tracking-tighter">Nuestros <span class="text-turquesa">Valores</span></h2>
+                <div class="w-16 h-1 bg-naranja mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="text-center group">
+                    <div class="text-turquesa text-3xl mb-4 transition-transform group-hover:scale-110"><i class="fas fa-star"></i></div>
+                    <h4 class="font-black uppercase text-xs mb-3 tracking-widest">Integridad</h4>
+                    <p class="text-[11px] text-gray-400 leading-relaxed">Honestidad y transparencia en cada asesoría y reserva brindada.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="text-turquesa text-3xl mb-4 transition-transform group-hover:scale-110"><i class="fas fa-heart"></i></div>
+                    <h4 class="font-black uppercase text-xs mb-3 tracking-widest">Compromiso</h4>
+                    <p class="text-[11px] text-gray-400 leading-relaxed">Dedicación total para que disfrutes tu viaje sin preocupaciones.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="text-turquesa text-3xl mb-4 transition-transform group-hover:scale-110"><i class="fas fa-check-circle"></i></div>
+                    <h4 class="font-black uppercase text-xs mb-3 tracking-widest">Excelencia</h4>
+                    <p class="text-[11px] text-gray-400 leading-relaxed">Altos estándares en logística y atención personalizada.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="text-turquesa text-3xl mb-4 transition-transform group-hover:scale-110"><i class="fas fa-fire"></i></div>
+                    <h4 class="font-black uppercase text-xs mb-3 tracking-widest">Pasión</h4>
+                    <p class="text-[11px] text-gray-400 leading-relaxed">Transmitimos nuestra alegría de viajar en cada ruta diseñada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto card-xiabi p-10 md:p-16 text-center relative overflow-hidden">
+            <div class="flex justify-center gap-1 mb-6 text-yellow-400">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            
+            <p class="text-xl md:text-3xl font-medium italic text-gray-700 leading-snug mb-10">
+                "La organización de Xiabi Travels superó mis expectativas. Cuidaron cada detalle de mi viaje. <span class="text-turquesa font-black">Insuperables.</span>"
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-gray-100 pt-10">
+                <div class="flex items-center gap-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" class="w-6" alt="Google">
+                    <p class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Opinión Verificada</p>
+                </div>
+                <a href="https://share.google/NJzPOwqxtJUDRroZc" target="_blank" class="bg-naranja text-white px-8 py-4 rounded-2xl font-black text-[10px] uppercase shadow-lg shadow-naranja/20 hover:bg-turquesa transition w-full md:w-auto">
+                    Ver en Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white py-16 text-center border-t border-gray-100">
+        <img src="logoxiabi.jpeg" class="h-10 mx-auto mb-8 rounded shadow-sm">
+        <div class="flex justify-center gap-8 mb-8 text-xl text-gray-400">
+            <a href="https://www.instagram.com/xiabitravels/" class="hover:text-turquesa"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/8298362020" class="hover:text-turquesa"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p class="text-[9px] font-black uppercase tracking-[0.4em] text-gray-300">Xiabi Travels © 2026</p>
     </footer>
 
 </body>
