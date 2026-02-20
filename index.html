@@ -3,198 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Xiabi Travels | Explora el Mundo</title>
+    <title>Xiabi Travels | Reserva tu Próxima Aventura</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { turquesa: '#00afaa', naranja: '#ff9800', oscuro: '#1a1a1a' },
-                    fontFamily: { sans: ['Poppins', 'sans-serif'] }
+                    colors: { turquesa: '#00afaa', naranja: '#ff9800', oscuro: '#1a1a1a' }
                 }
             }
         }
     </script>
     <style>
-        /* Optimización de Video para Mobile */
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: #000;
-        }
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
-            z-index: -1;
-        }
-        /* Menú Mobile Animado */
-        #menu {
-            transition: all 0.3s ease-in-out;
-            transform: translateY(-10px);
-            opacity: 0;
-            pointer-events: none;
-        }
-        #menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-            display: flex;
-        }
+        .video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        video { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .tour-card { transition: transform 0.3s ease; }
+        .tour-card:active { transform: scale(0.98); }
     </style>
 </head>
-<body class="bg-gray-50 font-sans text-oscuro overflow-x-hidden">
+<body class="bg-gray-50 font-['Poppins'] text-oscuro overflow-x-hidden">
 
-    <nav class="sticky top-0 z-50 glass border-b border-gray-100">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-            <img src="logoxiabi.jpeg" alt="Xiabi Travels" class="h-9 md:h-12 rounded">
-            
-            <button onclick="toggleMenu()" class="md:hidden text-2xl p-2 focus:outline-none">
-                <i id="menuIcon" class="fas fa-bars"></i>
-            </button>
-
-            <div id="menu" class="hidden absolute top-full left-0 w-full bg-white md:static md:flex md:w-auto md:bg-transparent flex-col md:flex-row md:space-x-8 p-6 md:p-0 font-black text-[12px] uppercase tracking-widest shadow-xl md:shadow-none">
-                <a href="#inicio" onclick="toggleMenu()" class="py-4 border-b md:border-none border-gray-50 hover:text-turquesa">Inicio</a>
-                <a href="#nosotros" onclick="toggleMenu()" class="py-4 border-b md:border-none border-gray-50 hover:text-turquesa">Quiénes Somos</a>
-                <a href="#tours" onclick="toggleMenu()" class="py-4 border-b md:border-none border-gray-50 hover:text-turquesa">Tours</a>
-                <a href="https://wa.me/8298362020" class="md:hidden bg-turquesa text-white px-6 py-4 rounded-xl text-center mt-4 uppercase">Reservar por WhatsApp</a>
-            </div>
-
-            <a href="https://wa.me/8298362020" class="hidden md:block bg-oscuro text-white px-6 py-2 rounded-full font-black text-[10px] uppercase hover:bg-turquesa transition">Reserva Ahora</a>
+            <img src="logoxiabi.jpeg" alt="Xiabi Travels" class="h-10 md:h-12 rounded">
+            <a href="https://wa.me/8298362020" class="bg-oscuro text-white px-5 py-2 rounded-full font-black text-[10px] uppercase tracking-wider">Ayuda Chat</a>
         </div>
     </nav>
 
-    <section id="inicio" class="relative h-[85vh] flex items-center justify-center text-center text-white px-6">
-        <div class="video-container">
+    <section class="relative h-[70vh] flex items-center justify-center text-center text-white px-6">
+        <div class="video-bg">
             <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200">
                 <source src="https://assets.mixkit.co/videos/preview/mixkit-daylight-shot-of-a-beach-with-calm-waters-and-boats-in-the-distance-1457-large.mp4" type="video/mp4">
             </video>
         </div>
-        <div class="overlay"></div>
         <div class="relative z-10 w-full">
-            <h1 class="text-4xl md:text-7xl font-black mb-4 leading-tight uppercase tracking-tighter">Viaja sin <br><span class="text-turquesa">Límites</span></h1>
-            <p class="text-sm md:text-xl font-light mb-8 opacity-90 max-w-md mx-auto">Gestionamos cada detalle de tu aventura para que tú solo disfrutes.</p>
-            <a href="#tours" class="inline-block bg-naranja text-white px-8 py-4 rounded-full font-black text-xs uppercase shadow-2xl active:scale-95 transition w-full md:w-auto">Ver Próximos Tours</a>
+            <h1 class="text-4xl md:text-7xl font-black mb-4 uppercase tracking-tighter leading-none">VIVE TU VIAJE <br><span class="text-turquesa text-5xl md:text-8xl italic">SOÑADO</span></h1>
+            <p class="text-sm md:text-lg mb-8 font-light max-w-md mx-auto opacity-90">Selecciona tu fecha y asegura tu cupo hoy mismo.</p>
+            <a href="#tours" class="inline-block bg-naranja text-white px-10 py-4 rounded-full font-black text-xs uppercase shadow-2xl animate-bounce">Ver Salidas Disponibles</a>
         </div>
     </section>
 
-    <section id="nosotros" class="py-16 px-6 bg-white">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
-            <div class="w-full md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Nosotros" class="rounded-[2rem] shadow-lg">
-            </div>
-            <div class="w-full md:w-1/2 text-center md:text-left">
-                <h2 class="text-3xl font-black uppercase mb-4 italic">¿Quiénes Somos?</h2>
-                <p class="text-gray-600 mb-6 text-sm leading-relaxed">Somos expertos en crear experiencias de viaje sin fricciones. En **Xiabi Travels** nos encargamos de toda la logística para que tu única preocupación sea qué fotos tomar.</p>
-                <a href="nosotros.html" class="text-turquesa font-black text-xs uppercase border-b-2 border-turquesa pb-1">Conoce nuestra historia</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="tours" class="py-16 px-4">
+    <section id="tours" class="py-12 px-4 bg-white border-b">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl md:text-4xl font-black uppercase mb-8 text-center md:text-left">Nuestros <span class="text-turquesa">Tours</span></h2>
+            <h2 class="text-2xl font-black uppercase mb-6 text-center italic">Encuentra tu destino:</h2>
             
-            <div class="flex flex-col gap-4 mb-10">
-                <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
-                    <button onclick="filterTours('todos')" class="filter-btn active bg-turquesa text-white px-5 py-2 rounded-lg text-[10px] font-black uppercase flex-shrink-0">Todos</button>
-                    <button onclick="filterTours('internacional')" class="filter-btn bg-white border px-5 py-2 rounded-lg text-[10px] font-black uppercase flex-shrink-0">Internacional</button>
-                    <button onclick="filterTours('local')" class="filter-btn bg-white border px-5 py-2 rounded-lg text-[10px] font-black uppercase flex-shrink-0">Local</button>
-                </div>
-                
-                <div class="relative">
-                    <select id="dateFilter" onchange="filterByDate()" class="w-full bg-white border border-gray-200 px-4 py-3 rounded-lg text-[10px] font-black uppercase appearance-none outline-none">
-                        <option value="todos">Filtrar por Mes (Todos)</option>
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1">
+                    <label class="block text-[10px] font-black uppercase text-gray-400 mb-2 ml-1">¿Cuándo quieres viajar?</label>
+                    <select id="dateFilter" onchange="applyFilters()" class="w-full bg-gray-50 border border-gray-200 px-4 py-4 rounded-2xl text-xs font-bold uppercase outline-none focus:border-turquesa transition appearance-none">
+                        <option value="todos">Cualquier mes de 2026</option>
                         <option value="Marzo">Marzo 2026</option>
                         <option value="Mayo">Mayo 2026</option>
                         <option value="Agosto">Agosto 2026</option>
+                        <option value="Septiembre">Septiembre 2026</option>
                     </select>
-                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
-                        <i class="fas fa-chevron-down text-[10px]"></i>
+                </div>
+                <div class="flex-1">
+                    <label class="block text-[10px] font-black uppercase text-gray-400 mb-2 ml-1">Tipo de destino</label>
+                    <div class="flex gap-2">
+                        <button onclick="setRegion('todos')" class="reg-btn active flex-1 bg-turquesa text-white py-4 rounded-2xl text-[10px] font-black uppercase border border-transparent">Todos</button>
+                        <button onclick="setRegion('internacional')" class="reg-btn flex-1 bg-gray-50 text-gray-500 py-4 rounded-2xl text-[10px] font-black uppercase border border-gray-100">Mundiales</button>
+                        <button onclick="setRegion('local')" class="reg-btn flex-1 bg-gray-50 text-gray-500 py-4 rounded-2xl text-[10px] font-black uppercase border border-gray-100">Locales</button>
                     </div>
                 </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="tours-container">
-                <div class="tour-card bg-white rounded-[1.5rem] shadow-md overflow-hidden border border-gray-100" data-region="internacional" data-month="Marzo">
-                    <div class="relative h-56">
-                        <img src="https://images.unsplash.com/photo-1595111397025-10497672224b?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
-                        <div class="absolute top-4 left-4 bg-turquesa text-white px-3 py-1 rounded-md text-[9px] font-black uppercase tracking-widest">Marzo 15</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-black uppercase mb-1">Medellín & Guatapé</h3>
-                        <p class="text-naranja font-black text-sm mb-4">US$645.00</p>
-                        <a href="https://wa.me/8298362020" class="block w-full text-center bg-oscuro text-white py-3 rounded-lg font-black text-[10px] uppercase active:bg-turquesa transition">Reservar Cupo</a>
-                    </div>
-                </div>
-                </div>
         </div>
     </section>
 
-    <footer class="bg-white border-t py-12 px-6 text-center">
-        <img src="logoxiabi.jpeg" class="h-8 mx-auto mb-6 rounded">
-        <div class="flex justify-center gap-8 mb-6">
-            <a href="#" class="text-2xl text-gray-400"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-2xl text-gray-400"><i class="fab fa-whatsapp"></i></a>
+    <section class="py-12 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="tours-container">
+            
+            <div class="tour-card bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100" data-region="internacional" data-month="Marzo">
+                <div class="relative h-64">
+                    <img src="https://images.unsplash.com/photo-1595111397025-10497672224b?auto=format&fit=crop&w=800" class="w-full h-full object-cover">
+                    <div class="absolute top-5 left-5 bg-white text-oscuro px-4 py-1 rounded-full text-[10px] font-black uppercase shadow-lg">Marzo 15 - 20</div>
+                </div>
+                <div class="p-8 text-center">
+                    <span class="text-turquesa font-black text-[10px] uppercase tracking-widest">Colombia</span>
+                    <h3 class="text-2xl font-black uppercase italic mb-2">Medellín & Guatapé</h3>
+                    <p class="text-3xl font-black text-oscuro mb-6">US$645</p>
+                    <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20comprar%20el%20tour%20a%20Medellín%20de%20Marzo" class="block w-full bg-naranja hover:bg-turquesa text-white py-4 rounded-2xl font-black text-xs uppercase transition shadow-lg shadow-naranja/20">Comprar por WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="tour-card bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100" data-region="internacional" data-month="Mayo">
+                <div class="relative h-64">
+                    <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=800" class="w-full h-full object-cover">
+                    <div class="absolute top-5 left-5 bg-white text-oscuro px-4 py-1 rounded-full text-[10px] font-black uppercase shadow-lg">Mayo 10 - 25</div>
+                </div>
+                <div class="p-8 text-center">
+                    <span class="text-turquesa font-black text-[10px] uppercase tracking-widest">Europa</span>
+                    <h3 class="text-2xl font-black uppercase italic mb-2">Europa Soñada</h3>
+                    <p class="text-3xl font-black text-oscuro mb-6">US$2,450</p>
+                    <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20comprar%20el%20tour%20Europa%20Soñada" class="block w-full bg-naranja hover:bg-turquesa text-white py-4 rounded-2xl font-black text-xs uppercase transition shadow-lg shadow-naranja/20">Comprar por WhatsApp</a>
+                </div>
+            </div>
+
         </div>
-        <p class="text-[8px] font-bold text-gray-400 uppercase tracking-[0.3em]">Xiabi Travels © 2026</p>
+    </section>
+
+    <footer class="bg-white py-12 text-center border-t border-gray-100">
+        <p class="text-[10px] font-black uppercase tracking-[0.4em] text-gray-300 mb-4">Xiabi Travels © 2026</p>
+        <div class="flex justify-center gap-6 text-xl text-gray-400">
+            <a href="https://www.instagram.com/xiabitravels/"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/8298362020"><i class="fab fa-whatsapp"></i></a>
+        </div>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            const icon = document.getElementById('menuIcon');
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('active');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+        let currentRegion = 'todos';
+
+        function setRegion(reg) {
+            currentRegion = reg;
+            document.querySelectorAll('.reg-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-turquesa', 'text-white');
+                btn.classList.add('bg-gray-50', 'text-gray-500');
+            });
+            event.target.classList.add('active', 'bg-turquesa', 'text-white');
+            applyFilters();
         }
 
-        function filterAll() {
-            const regionActive = document.querySelector('.filter-btn.active').innerText.toLowerCase();
-            const monthActive = document.getElementById('dateFilter').value;
+        function applyFilters() {
+            const selectedMonth = document.getElementById('dateFilter').value;
             const cards = document.querySelectorAll('.tour-card');
 
             cards.forEach(card => {
-                const cardRegion = card.getAttribute('data-region');
-                const cardMonth = card.getAttribute('data-month');
-                const matchesRegion = (regionActive === 'todos' || 
-                                       (regionActive === 'internacional' && cardRegion === 'internacional') || 
-                                       (regionActive === 'local' && cardRegion === 'local'));
-                const matchesMonth = (monthActive === 'todos' || cardMonth === monthActive);
+                const region = card.getAttribute('data-region');
+                const month = card.getAttribute('data-month');
+                
+                const matchesRegion = (currentRegion === 'todos' || region === currentRegion);
+                const matchesMonth = (selectedMonth === 'todos' || month === selectedMonth);
 
                 card.style.display = (matchesRegion && matchesMonth) ? 'block' : 'none';
             });
-        }
-
-        function filterTours(region) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-turquesa', 'text-white');
-                btn.classList.add('bg-white', 'text-oscuro');
-            });
-            event.target.classList.add('active', 'bg-turquesa', 'text-white');
-            filterAll();
-        }
-
-        function filterByDate() {
-            filterAll();
         }
     </script>
 </body>
