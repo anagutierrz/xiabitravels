@@ -3,9 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Nuestra Esencia | Xiabi Travels</title>
-    <meta name="description" content="Conoce la misión, visión y valores éticos de Xiabi Travels. Somos una agencia de viajes comprometida con tu seguridad y experiencia.">
     
+    <title>Xiabi Travels | Experiencias con Propósito</title>
+    <meta name="description" content="Xiabi Travels es tu agencia de viajes experta. Acompañamiento personalizado y logística segura para que tú solo te enfoques en disfrutar y conectar.">
+    <meta name="keywords" content="agencia de viajes, tours desde republica dominicana, viajes internacionales, turismo local, Isla Saona, tours a Europa, Medellín, Xiabi Travels">
+    <meta name="author" content="Xiabi Travels">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Xiabi Travels | Experiencias con Propósito">
+    <meta property="og:description" content="Acompañamiento personalizado y logística segura para que tú solo te enfoques en disfrutar y conectar.">
+    <meta property="og:url" content="https://xiabitravels.com">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "Europa Soñada",
+            "description": "Recorridos seguros por París, Madrid y Roma.",
+            "offers": { "@type": "Offer", "price": "2450.00", "priceCurrency": "USD", "url": "https://xiabitravels.com/#tours-internacionales" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "TouristTrip",
+            "name": "Medellín & Guatapé",
+            "description": "Cultura, color y la mejor atención en Colombia.",
+            "offers": { "@type": "Offer", "price": "645.00", "priceCurrency": "USD", "url": "https://xiabitravels.com/#tours-internacionales" }
+          }
+        }
+      ]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,48 +59,328 @@
         }
     </script>
     <style>
-        .quote-border { border-left: 4px solid #00afaa; }
+        .card-xiabi { background: white; border-radius: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .card-xiabi:hover { transform: translateY(-5px); box-shadow: 0 20px 35px -5px rgba(0,175,170,0.15); border-color: #00afaa; }
+        .quote-border { border-left: 4px solid #ff9800; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 1.5rem; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .glass-overlay { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(4px); }
     </style>
 </head>
 <body class="bg-grisClaro font-sans text-oscuro overflow-x-hidden">
 
+    <a href="https://wa.me/8298362020?text=Hola%20Xiabi%20Travels!%20Me%20gustaría%20recibir%20asesoría%20para%20un%20viaje." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25d366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-transform">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="hidden md:flex bg-turquesa text-white text-[11px] py-2 px-6 justify-between items-center font-semibold tracking-wide">
+        <div class="flex gap-6">
+            <span><i class="fas fa-phone mr-2"></i> (829) 836-2020</span>
+            <span><i class="fas fa-envelope mr-2"></i> info@xiabitravels.com</span>
+        </div>
+        <div class="flex gap-4 items-center">
+            <span>Responsabilidad, ética y acompañamiento en cada viaje</span>
+            <div class="flex gap-3 text-white text-sm">
+                <a href="https://www.instagram.com/xiabitravels/" class="hover:text-oscuro transition"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
     <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
-            <a href="index.html" class="z-50"><img src="logoxiabi.jpeg" alt="Logo Xiabi Travels" class="h-10 md:h-12 rounded"></a>
-            <div class="flex items-center gap-6">
-                <a href="index.html" class="text-[12px] font-bold uppercase text-gray-600 hover:text-turquesa tracking-wider">Volver al Inicio</a>
+            <a href="#inicio" class="z-50"><img src="logoxiabi.jpeg" alt="Logo Xiabi Travels" class="h-10 md:h-12 rounded"></a>
+            
+            <button onclick="toggleMenu()" class="md:hidden text-2xl text-oscuro z-50 focus:outline-none p-2">
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </button>
+
+            <div id="navMenu" class="hidden absolute top-full left-0 w-full bg-white md:static md:flex md:w-auto md:bg-transparent flex-col md:flex-row items-center gap-6 p-8 md:p-0 shadow-xl md:shadow-none border-b md:border-none border-gray-100">
+                <a href="#inicio" onclick="toggleMenu()" class="text-[12px] font-bold uppercase text-turquesa tracking-wider">Inicio</a>
+                <a href="#tours-nacionales" onclick="toggleMenu()" class="text-[12px] font-bold uppercase text-gray-600 hover:text-turquesa tracking-wider transition">Tours Nacionales</a>
+                <a href="#tours-internacionales" onclick="toggleMenu()" class="text-[12px] font-bold uppercase text-gray-600 hover:text-turquesa tracking-wider transition">Tours Internacionales</a>
+                
+                <a href="https://wa.me/8298362020?text=Hola!%20Deseo%20contactar%20un%20agente." class="w-full md:w-auto text-center bg-naranja text-white px-6 py-3 rounded-full font-bold text-[11px] uppercase tracking-wider hover:bg-oscuro transition shadow-md">Escríbenos</a>
             </div>
         </div>
     </nav>
 
-    <main class="py-20 px-6 max-w-4xl mx-auto text-center">
-        <span class="text-naranja font-bold text-[11px] uppercase tracking-widest block mb-4">Nuestra Esencia</span>
-        <h1 class="text-4xl md:text-6xl font-extrabold text-oscuro mb-10 leading-tight">
-            Viajar con propósito. <br><span class="text-turquesa">Servir con excelencia.</span>
-        </h1>
-        
-        <div class="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 text-left mb-12">
-            <h2 class="text-2xl font-bold text-oscuro mb-4"><i class="fas fa-route text-turquesa mr-2"></i> Nuestra Misión</h2>
-            <p class="text-gray-600 mb-8 leading-relaxed">
-                Brindar experiencias de viajes seguras, enriquecedoras y memorables, con un servicio de alta calidad, basado en la honestidad, el respeto y el amor al prójimo.
-            </p>
-
-            <h2 class="text-2xl font-bold text-oscuro mb-4"><i class="fas fa-eye text-naranja mr-2"></i> Nuestra Visión</h2>
-            <p class="text-gray-600 leading-relaxed">
-                Ser la agencia de viajes líder en experiencias inolvidables, ofreciendo un servicio de excelencia con integridad y amor, guiados por principios cristianos y con un compromiso inquebrantable con nuestros clientes.
-            </p>
+    <header id="inicio" class="relative flex flex-col items-center justify-center min-h-[85vh] px-4 py-20 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?auto=format&fit=crop&w=1920&q=80" alt="Fondo de viajes" class="w-full h-full object-cover">
+            <div class="absolute inset-0 glass-overlay"></div>
         </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+            <span class="bg-turquesa/10 border border-turquesa/20 text-turquesa px-5 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest mb-6 inline-block">
+                Agencia de Viajes y Turismo
+            </span>
+            <h1 class="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold text-oscuro leading-tight md:leading-[1.1] mb-6 tracking-tight">
+                En Xiabi Travels, <br class="hidden md:block"> creamos <br>
+                <span class="text-turquesa italic block mt-2">Experiencias con Propósito</span>
+            </h1>
+            <p class="text-sm md:text-lg font-medium text-gray-600 max-w-2xl mx-auto mb-10">
+                Acompañamiento personalizado y logística segura para que tú solo te enfoques en disfrutar y conectar.
+            </p>
+            <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20planificar%20un%20viaje." class="inline-flex items-center justify-center bg-naranja hover:bg-oscuro text-white px-10 py-4 rounded-full font-bold text-[11px] md:text-xs uppercase tracking-wider shadow-lg shadow-naranja/30 transition transform hover:-translate-y-1">
+                <i class="fab fa-whatsapp text-lg mr-2"></i> Habla con nosotros
+            </a>
+        </div>
+    </header>
 
-        <a href="index.html#tours-internacionales" class="inline-flex items-center justify-center bg-oscuro hover:bg-turquesa text-white px-10 py-4 rounded-full font-bold text-[11px] uppercase tracking-wider transition shadow-lg">
-            Ver nuestros destinos <i class="fas fa-arrow-right ml-2"></i>
-        </a>
+    <main>
+        <section id="nosotros" class="py-20 md:py-24 px-6 bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div>
+                        <span class="text-naranja font-bold text-[11px] uppercase tracking-widest block mb-2">Conócenos</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-oscuro mb-6 leading-tight">
+                            Viajar es vivir, transformar <br>y conectar.
+                        </h2>
+                        <div class="space-y-5 text-gray-600 text-sm md:text-base leading-relaxed">
+                            <p>En <strong>Xiabi Travels</strong> creemos que viajar no es solo trasladarse de un lugar a otro, es vivir experiencias que dejan recuerdos para toda la vida.</p>
+                            <p>Somos una agencia de viajes comprometida con la excelencia, la transparencia y el acompañamiento personalizado. Más que vender boletos o reservar hoteles, nos enfocamos en diseñar experiencias seguras, organizadas y adaptadas a las necesidades de cada cliente.</p>
+                            <div class="bg-gray-50 p-6 rounded-xl quote-border mt-6">
+                                <p class="font-semibold text-oscuro italic text-sm">
+                                    "Para nosotros, cada viaje representa la confianza que un cliente deposita en nuestras manos, y honramos esa confianza con compromiso, claridad y atención en cada detalle."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <div class="video-container border-4 border-gray-50">
+                            <iframe src="https://www.youtube.com/embed/GIIEdCoj4AE?si=X0E9lto17S_kinhs" title="Conoce a Xiabi Travels" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <p class="text-center text-[11px] text-gray-500 mt-4 uppercase tracking-wider font-bold">
+                            <i class="fas fa-play-circle text-turquesa mr-1"></i> Dale play y conoce nuestra historia
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="valores" class="py-20 md:py-24 px-6 bg-grisClaro text-center border-b border-gray-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-12 md:mb-16">
+                    <span class="text-naranja font-bold text-[11px] uppercase tracking-widest block mb-2">Nuestra base ética</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-oscuro mb-6">Valores que nos guían</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                        Trabajamos con responsabilidad, ética y temor a Dios. Nuestras decisiones y el trato hacia ti están fundamentados en estos pilares inquebrantables.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                    <article class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-turquesa shadow-sm transition flex flex-col items-center justify-center min-h-[140px]">
+                        <i class="fas fa-hands-helping text-3xl text-turquesa mb-4"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider text-oscuro">Honestidad</h3>
+                    </article>
+                    <article class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-turquesa shadow-sm transition flex flex-col items-center justify-center min-h-[140px]">
+                        <i class="fas fa-star text-3xl text-turquesa mb-4"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider text-oscuro">Integridad</h3>
+                    </article>
+                    <article class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-turquesa shadow-sm transition flex flex-col items-center justify-center min-h-[140px]">
+                        <i class="fas fa-handshake text-3xl text-turquesa mb-4"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider text-oscuro">Compromiso</h3>
+                    </article>
+                    <article class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-turquesa shadow-sm transition flex flex-col items-center justify-center min-h-[140px]">
+                        <i class="fas fa-clipboard-check text-3xl text-turquesa mb-4"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider text-oscuro">Responsabilidad</h3>
+                    </article>
+                    <article class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-turquesa shadow-sm transition flex flex-col items-center justify-center min-h-[140px]">
+                        <i class="fas fa-heart text-3xl text-turquesa mb-4"></i>
+                        <h3 class="font-bold text-[10px] md:text-xs uppercase tracking-wider text-oscuro text-center">Servicio al Prójimo</h3>
+                    </article>
+                    <article class="bg-white p-6 rounded-2xl border border-gray-100 hover:border-turquesa shadow-sm transition flex flex-col items-center justify-center min-h-[140px]">
+                        <i class="fas fa-praying-hands text-3xl text-turquesa mb-4"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider text-oscuro">Fe</h3>
+                    </article>
+                    <article class="bg-white p-6 rounded-2xl border border-naranja hover:border-turquesa shadow-sm transition md:col-span-3 lg:col-span-2 flex flex-col items-center justify-center min-h-[140px]">
+                        <i class="fas fa-book text-3xl text-naranja mb-4"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider text-oscuro">Principios Cristianos</h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="tours-internacionales" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold uppercase text-oscuro mb-2">Destinos <span class="text-turquesa">Internacionales</span></h2>
+                    <p class="text-sm text-gray-500">Logística impecable en los destinos más hermosos del mundo.</p>
+                </div>
+                
+                <div id="tours-internacionales-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <p class="col-span-3 text-center text-gray-400 py-10"><i class="fas fa-spinner fa-spin text-turquesa mr-2"></i> Cargando destinos...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tours-nacionales" class="py-20 bg-grisClaro border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold uppercase text-oscuro mb-2">Destinos <span class="text-naranja">Nacionales</span></h2>
+                    <p class="text-sm text-gray-500">La belleza de nuestra tierra, explorada con responsabilidad.</p>
+                </div>
+                
+                <div id="tours-nacionales-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <p class="col-span-3 text-center text-gray-400 py-10"><i class="fas fa-spinner fa-spin text-naranja mr-2"></i> Cargando destinos locales...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="py-20 md:py-24 px-6 bg-white border-t border-gray-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12 md:mb-16">
+                    <span class="text-turquesa font-bold text-[11px] uppercase tracking-widest block mb-2">Soluciones Integrales</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-oscuro mb-4">Nuestros Servicios</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto text-sm">Brindamos asesoría honesta, información clara y acompañamiento antes, durante y después del viaje. Nunca viajas solo.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <article class="card-xiabi p-8 text-center flex flex-col items-center bg-grisClaro">
+                        <div class="w-16 h-16 bg-white text-turquesa rounded-full flex items-center justify-center text-3xl mb-6 shadow-sm"><i class="fas fa-plane-departure"></i></div>
+                        <h3 class="font-bold text-sm uppercase text-oscuro mb-3">Boletos Aéreos</h3>
+                        <p class="text-xs text-gray-500 mb-6 leading-relaxed flex-grow">Rutas nacionales e internacionales con las mejores aerolíneas y tarifas optimizadas.</p>
+                    </article>
+                    <article class="card-xiabi p-8 text-center flex flex-col items-center bg-grisClaro">
+                        <div class="w-16 h-16 bg-white text-turquesa rounded-full flex items-center justify-center text-3xl mb-6 shadow-sm"><i class="fas fa-hotel"></i></div>
+                        <h3 class="font-bold text-sm uppercase text-oscuro mb-3">Reservas de Hoteles</h3>
+                        <p class="text-xs text-gray-500 mb-6 leading-relaxed flex-grow">Alojamientos seguros, confortables y verificados en cualquier parte del mundo.</p>
+                    </article>
+                    <article class="card-xiabi p-8 text-center flex flex-col items-center bg-grisClaro">
+                        <div class="w-16 h-16 bg-white text-turquesa rounded-full flex items-center justify-center text-3xl mb-6 shadow-sm"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="font-bold text-sm uppercase text-oscuro mb-3">Seguros de Viaje</h3>
+                        <p class="text-xs text-gray-500 mb-6 leading-relaxed flex-grow">Cobertura médica y de equipaje. Viaja protegido ante cualquier imprevisto.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-oscuro text-white py-8 text-center">
-        <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500">
-            Xiabi Travels © 2026 | Powered by Aura
-        </p>
+    <footer class="bg-oscuro text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <img src="logoxiabi.jpeg" alt="Logo Xiabi Travels" class="h-10 mb-4 brightness-0 invert mx-auto md:mx-0">
+                <p class="text-[10px] text-gray-400 max-w-sm">Agencia de viajes guiada por la ética y el compromiso. Tu confianza, nuestra mayor responsabilidad.</p>
+            </div>
+            <div class="flex gap-6 text-xl">
+                <a href="https://www.instagram.com/xiabitravels/" class="text-gray-400 hover:text-turquesa transition" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/8298362020" class="text-gray-400 hover:text-turquesa transition" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-gray-800 mt-8 pt-6 text-center">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                Xiabi Travels © 2026 | Santo Domingo, Rep. Dom.<br>
+                <span class="text-turquesa mt-3 inline-block font-black">Powered by Aura</span>
+            </p>
+        </div>
     </footer>
 
+    <script>
+        // 1. Menú Móvil
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            const icon = document.getElementById('menuIcon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden'); menu.classList.add('flex');
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                menu.classList.add('hidden'); menu.classList.remove('flex');
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        }
+
+        // 2. Conexión a Google Sheets (CSV)
+        const URL_DEL_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTc6K3gOmtCPDTZAF2v_RqJUSu6_RO-k712PK0kSL-cfXUhb2U5u2d_HnGRjUwugHEAw2TVvcXQsm9M/pub?output=csv';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarInventario();
+        });
+
+        async function cargarInventario() {
+            try {
+                const respuesta = await fetch(URL_DEL_CSV);
+                const textoCSV = await respuesta.text();
+                
+                const tours = parsearCSV(textoCSV);
+                
+                // Filtrar los que van en el inicio ("SÍ")
+                const toursInicio = tours.filter(tour => tour['Top 3'] && tour['Top 3'].trim().toUpperCase() === 'SÍ');
+                
+                // Separar por categorías
+                const internacionales = toursInicio.filter(tour => tour['Categoría'] && tour['Categoría'].trim().toLowerCase() === 'internacional');
+                const nacionales = toursInicio.filter(tour => tour['Categoría'] && tour['Categoría'].trim().toLowerCase() === 'nacional');
+
+                // Renderizar en el HTML
+                renderizarTours(internacionales, 'tours-internacionales-grid');
+                renderizarTours(nacionales, 'tours-nacionales-grid');
+
+            } catch (error) {
+                console.error('Error al cargar el Excel:', error);
+                document.getElementById('tours-internacionales-grid').innerHTML = '<p class="text-red-500 text-center col-span-3">Error al cargar los tours. Verifica tu conexión.</p>';
+            }
+        }
+
+        // 3. Pintar Tarjetas
+        function renderizarTours(listaTours, idContenedor) {
+            const contenedor = document.getElementById(idContenedor);
+            if (!contenedor) return; 
+            
+            contenedor.innerHTML = ''; 
+
+            if (listaTours.length === 0) {
+                contenedor.innerHTML = '<p class="text-gray-400 text-center col-span-3">No hay tours disponibles por el momento.</p>';
+                return;
+            }
+
+            listaTours.forEach(tour => {
+                const badgeHTML = (tour['Badge'] && tour['Badge'].trim() !== '') 
+                    ? `<div class="absolute top-4 left-4 bg-red-600/90 backdrop-blur text-white px-3 py-1 rounded text-[10px] font-bold uppercase shadow-lg animate-pulse">${tour['Badge']}</div>` 
+                    : '';
+                
+                const htmlTarjeta = `
+                    <article class="card-xiabi overflow-hidden bg-white">
+                        <div class="relative h-56">
+                            <img src="${tour['URL Imagen']}" alt="${tour['Título']}" loading="lazy" class="w-full h-full object-cover bg-gray-200">
+                            ${badgeHTML}
+                            <div class="absolute bottom-4 left-4 bg-oscuro/80 backdrop-blur text-white px-3 py-1 rounded text-[10px] font-bold uppercase">${tour['Fechas Exactas'] || 'Ver fechas'}</div>
+                        </div>
+                        <div class="p-6 text-center flex flex-col h-full">
+                            <h3 class="text-lg font-bold text-oscuro uppercase">${tour['Título']}</h3>
+                            <p class="text-2xl font-black text-naranja my-2">${tour['Precio']}</p>
+                            <p class="text-xs text-gray-500 mb-6 flex-grow">${tour['Descripción Corta']}</p>
+                            <a href="https://wa.me/8298362020?text=Hola! ${tour['Mensaje WhatsApp']}" target="_blank" class="inline-block bg-turquesa hover:bg-oscuro text-white px-6 py-3.5 rounded-full font-bold text-[10px] uppercase transition shadow-md w-full">
+                                Reservar Tour
+                            </a>
+                        </div>
+                    </article>
+                `;
+                contenedor.innerHTML += htmlTarjeta;
+            });
+        }
+
+        // 4. Lector robusto de CSV
+        function parsearCSV(str) {
+            const arr = [];
+            let quote = false;
+            let col = 0, row = 0;
+            for (let c = 0; c < str.length; c++) {
+                let cc = str[c], nc = str[c+1];
+                arr[row] = arr[row] || [];
+                arr[row][col] = arr[row][col] || '';
+                if (cc == '"' && quote && nc == '"') { arr[row][col] += cc; ++c; continue; }
+                if (cc == '"') { quote = !quote; continue; }
+                if (cc == ',' && !quote) { ++col; continue; }
+                if (cc == '\r' && nc == '\n' && !quote) { ++row; col = 0; ++c; continue; }
+                if (cc == '\n' && !quote) { ++row; col = 0; continue; }
+                if (cc == '\r' && !quote) { ++row; col = 0; continue; }
+                arr[row][col] += cc;
+            }
+            const headers = arr[0];
+            return arr.slice(1).filter(r => r.length > 1).map(row => {
+                let obj = {};
+                headers.forEach((h, i) => obj[h ? h.trim() : `col_${i}`] = row[i] ? row[i].trim() : '');
+                return obj;
+            });
+        }
+    </script>
 </body>
 </html>
