@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xiabi Travels | Experiencias con Propósito</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#00B5A6;
+  --teal-dark:#008F82;
+  --teal-light:#E0F7F5;
+  --orange:#F5A623;
+  --orange-dark:#D4881A;
+  --dark:#1A1A1A;
+  --gray:#555;
+  --gray-light:#F7F7F7;
+  --white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;color:var(--dark);overflow-x:hidden}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--teal);color:var(--white);padding:.45rem 5%;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;font-family:'Montserrat',sans-serif;font-weight:500}
+.topbar-left{display:flex;gap:1.8rem;align-items:center}
+.topbar a{color:var(--white);text-decoration:none;display:flex;align-items:center;gap:.4rem;opacity:.92;transition:opacity .2s}
+.topbar a:hover{opacity:1}
+.topbar-right{display:flex;gap:1.2rem;align-items:center}
+.topbar-social{width:26px;height:26px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);text-decoration:none;font-size:.7rem;transition:all .2s}
+.topbar-social:hover{background:rgba(255,255,255,.2)}
+
+/* ── NAVBAR ── */
+nav{background:var(--white);padding:.9rem 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo-icon{width:44px;height:44px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem}
+.nav-logo-text{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.2rem;color:var(--dark);line-height:1.1}
+.nav-logo-text span{display:block;font-size:.65rem;font-weight:500;color:var(--teal);letter-spacing:.12em;text-transform:uppercase}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{color:var(--dark);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:.3rem 0;border-bottom:2px solid transparent;transition:all .25s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);border-bottom-color:var(--teal)}
+.nav-cta{background:var(--orange);color:var(--white)!important;padding:.65rem 1.4rem!important;border-radius:30px!important;border:none!important;font-weight:700!important;transition:background .25s,transform .2s!important}
+.nav-cta:hover{background:var(--orange-dark)!important;transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center;animation:zoomSlow 12s ease-out forwards}
+@keyframes zoomSlow{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,181,166,.75) 0%,rgba(26,26,26,.5) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 5%;max-width:700px;animation:slideUp .8s .2s both}
+@keyframes slideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);color:var(--white);font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:30px;margin-bottom:1.2rem}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:800;color:var(--white);line-height:1.12;margin-bottom:1.2rem}
+.hero h1 span{color:var(--orange);font-style:italic}
+.hero-sub{color:rgba(255,255,255,.88);font-size:1.05rem;line-height:1.8;max-width:520px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-orange{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange);color:var(--white);padding:.9rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;text-decoration:none;letter-spacing:.03em;transition:all .25s;box-shadow:0 4px 18px rgba(245,166,35,.4)}
+.btn-orange:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,166,35,.5)}
+.btn-white-outline{display:inline-flex;align-items:center;gap:.5rem;border:2px solid rgba(255,255,255,.7);color:var(--white);padding:.9rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .25s}
+.btn-white-outline:hover{background:rgba(255,255,255,.15);border-color:var(--white)}
+.hero-stats{position:absolute;bottom:0;right:0;display:flex;z-index:3}
+.hero-stat{background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.2);padding:1.2rem 2rem;text-align:center;color:var(--white)}
+.hero-stat:first-child{border-left:1px solid rgba(255,255,255,.2)}
+.stat-n{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;display:block;color:var(--orange)}
+.stat-l{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+
+/* ── RIBBON ── */
+.ribbon{background:var(--teal);color:var(--white);padding:1rem 5%;display:flex;gap:3rem;overflow:hidden;white-space:nowrap}
+.ribbon-item{display:flex;align-items:center;gap:.6rem;font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.04em;opacity:.95;flex-shrink:0}
+.ribbon-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0}
+
+/* ── SECTION COMMON ── */
+section{padding:5.5rem 5%}
+.section-tag{font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);margin-bottom:.7rem}
+.section-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;line-height:1.2;margin-bottom:.8rem}
+.section-title span{color:var(--teal)}
+.title-bar{width:50px;height:4px;background:var(--orange);border-radius:2px;margin-bottom:1.8rem}
+.section-sub{color:var(--gray);line-height:1.85;max-width:560px;font-size:.95rem}
+.section-center{text-align:center}
+.section-center .section-sub,.section-center .title-bar{margin-left:auto;margin-right:auto}
+
+/* ── SERVICES GRID ── */
+.services-bg{background:var(--gray-light)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:3rem;max-width:1200px;margin-left:auto;margin-right:auto}
+.svc-card{background:var(--white);border-radius:12px;padding:2rem 1.8rem;border:1px solid #EBEBEB;transition:all .3s;position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--teal);transform:scaleY(0);transition:transform .3s;transform-origin:bottom}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.svc-card:hover::after{transform:scaleY(1)}
+.svc-img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:1.2rem}
+.svc-icon{width:52px;height:52px;background:var(--teal-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1rem}
+.svc-card h3{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.5rem;color:var(--dark)}
+.svc-card p{font-size:.85rem;color:var(--gray);line-height:1.7}
+
+/* ── ABOUT ── */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1200px;margin:0 auto;align-items:center}
+.about-images{position:relative;height:480px}
+.about-img1{position:absolute;left:0;top:0;width:70%;height:100%;object-fit:cover;border-radius:12px}
+.about-img2{position:absolute;right:0;bottom:2rem;width:48%;height:56%;object-fit:cover;border-radius:12px;border:5px solid var(--white);box-shadow:0 12px 36px rgba(0,0,0,.15)}
+.about-badge{position:absolute;left:1.5rem;bottom:3rem;background:var(--teal);color:var(--white);padding:1rem 1.4rem;border-radius:10px;font-family:'Montserrat',sans-serif;text-align:center;z-index:2}
+.about-badge strong{display:block;font-size:1.8rem;font-weight:800}
+.about-badge span{font-size:.72rem;font-weight:600;opacity:.9;letter-spacing:.06em}
+.about-text blockquote{margin:1.5rem 0;padding:1.2rem 1.4rem;background:var(--teal-light);border-left:4px solid var(--teal);border-radius:0 8px 8px 0;font-size:.93rem;color:var(--teal-dark);font-style:italic;line-height:1.7}
+.about-text p{color:var(--gray);line-height:1.9;font-size:.93rem;margin-bottom:1rem}
+.check-list{list-style:none;margin:1rem 0 1.5rem;display:flex;flex-direction:column;gap:.6rem}
+.check-list li{display:flex;align-items:center;gap:.7rem;font-size:.88rem;color:var(--dark);font-weight:500}
+.check-list li::before{content:'✓';width:22px;height:22px;background:var(--teal);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;flex-shrink:0;line-height:22px;text-align:center}
+
+/* ── DESTINATIONS ── */
+.dest-wrap{max-width:1200px;margin:0 auto}
+.dest-tabs{display:flex;gap:0;margin-bottom:2rem;border-bottom:2px solid #E8E8E8}
+.dest-tab{padding:.7rem 1.8rem;font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;color:var(--gray);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .25s;text-transform:uppercase;letter-spacing:.08em}
+.dest-tab.active{color:var(--teal);border-bottom-color:var(--teal)}
+.dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.dest-card{position:relative;border-radius:12px;overflow:hidden;height:220px;cursor:pointer}
+.dest-card:first-child{grid-column:1/3;height:300px}
+.dest-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.dest-card:hover img{transform:scale(1.07)}
+.dest-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 55%)}
+.dest-card-info{position:absolute;bottom:0;left:0;right:0;padding:1.2rem}
+.dest-cat{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:.25rem}
+.dest-name{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:800;color:var(--white)}
+.dest-card:first-child .dest-name{font-size:1.7rem}
+.dest-cta{position:absolute;top:1rem;right:1rem;background:var(--orange);color:var(--white);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;opacity:0;transition:opacity .3s;text-decoration:none}
+.dest-card:hover .dest-cta{opacity:1}
+
+/* ── VALUES ── */
+.values-bg{background:var(--teal)}
+.values-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.values-text .section-tag{color:rgba(255,255,255,.7)}
+.values-text .section-title{color:var(--white)}
+.values-text .title-bar{background:var(--orange)}
+.values-text p{color:rgba(255,255,255,.82);line-height:1.9;font-size:.93rem}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.val-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:1.4rem;transition:background .3s}
+.val-item:hover{background:rgba(255,255,255,.18)}
+.val-icon{font-size:1.6rem;margin-bottom:.7rem;display:block}
+.val-item h4{font-family:'Montserrat',sans-serif;font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
+.val-item p{font-size:.78rem;color:rgba(255,255,255,.72);line-height:1.6}
+
+/* ── TESTIMONIALS ── */
+.testi-bg{background:var(--gray-light)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:3rem auto 0}
+.testi-card{background:var(--white);border-radius:12px;padding:1.8rem;border:1px solid #EBEBEB;position:relative}
+.testi-stars{color:var(--orange);font-size:.9rem;margin-bottom:.8rem;letter-spacing:.05em}
+.testi-card p{font-size:.88rem;color:var(--gray);line-height:1.75;font-style:italic;margin-bottom:1.2rem}
+.testi-card p::before{content:'\201C';font-size:2.5rem;color:var(--teal);line-height:0;vertical-align:-.5rem;margin-right:.2rem}
+.testi-author{display:flex;align-items:center;gap:.8rem}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:var(--teal-light);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;color:var(--teal);flex-shrink:0}
+.testi-name{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;color:var(--dark)}
+.testi-loc{font-size:.75rem;color:var(--gray)}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--orange);padding:4rem 5%;text-align:center}
+.cta-band h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--white);margin-bottom:.8rem}
+.cta-band p{color:rgba(255,255,255,.88);margin-bottom:2rem;font-size:.95rem;max-width:520px;margin-left:auto;margin-right:auto}
+.btn-white{display:inline-flex;align-items:center;gap:.5rem;background:var(--white);color:var(--orange);padding:.9rem 2.2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.88rem;font-weight:800;text-decoration:none;transition:all .25s;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.18)}
+
+/* ── CONTACT ── */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1100px;margin:0 auto}
+.contact-info .section-sub{margin-bottom:2rem}
+.c-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 0;border-bottom:1px solid #EBEBEB}
+.c-icon{width:44px;height:44px;background:var(--teal-light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;color:var(--teal)}
+.c-label{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.2rem}
+.c-value{font-size:.9rem;color:var(--dark);font-weight:500}
+.contact-form{display:flex;flex-direction:column;gap:1.1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+label{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);display:block;margin-bottom:.4rem}
+input,select,textarea{width:100%;padding:.8rem 1rem;border:1.5px solid #E0E0E0;border-radius:8px;font-family:'Open Sans',sans-serif;font-size:.9rem;color:var(--dark);outline:none;transition:border-color .25s;background:var(--white)}
+input:focus,select:focus,textarea:focus{border-color:var(--teal)}
+select option{background:var(--white)}
+textarea{resize:vertical;min-height:110px}
+.btn-teal{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--teal);color:var(--white);padding:.95rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.88rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;width:100%;transition:all .25s;box-shadow:0 4px 18px rgba(0,181,166,.3)}
+.btn-teal:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,181,166,.45)}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);color:var(--white);padding:3.5rem 5% 1.5rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-logo-wrap{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.footer-logo-icon{width:40px;height:40px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;color:var(--white)}
+.footer-logo-text{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem}
+footer p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:1.2rem}
+.footer-col h4{font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.83rem;transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-socials{display:flex;gap:.7rem;margin-top:.5rem}
+.fsoc{width:36px;height:36px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none;font-size:.75rem;font-family:'Montserrat',sans-serif;font-weight:700;transition:all .2s}
+.fsoc:hover{background:var(--teal);border-color:var(--teal);color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.footer-bottom p{margin:0;font-size:.78rem;color:rgba(255,255,255,.4)}
+.powered{color:var(--orange)!important;font-weight:600}
+
+/* ── WHATSAPP FLOAT ── */
+.wa{position:fixed;bottom:2rem;right:2rem;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,.5);animation:waPop 3s infinite}
+@keyframes waPop{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.5)}50%{box-shadow:0 4px 32px rgba(37,211,102,.8),0 0 0 10px rgba(37,211,102,.1)}}
+.wa:hover{transform:scale(1.1)}
+.wa svg{width:32px;height:32px;fill:white}
+.wa-tooltip{position:absolute;right:70px;background:var(--dark);color:var(--white);padding:.45rem .9rem;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:.75rem;font-weight:600;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none}
+.wa:hover .wa-tooltip{opacity:1}
+
+@media(max-width:900px){
+  .about-wrap,.values-inner,.contact-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .about-images{height:280px}
+  .dest-grid{grid-template-columns:1fr 1fr}
+  .dest-card:first-child{grid-column:auto;height:220px}
+  .testi-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{display:none}
+  nav .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="tel:8298362020">📞 (829) 836-2020</a>
+    <a href="mailto:info@xiabitravels.com">✉ info@xiabitravels.com</a>
+  </div>
+  <div class="topbar-right">
+    <span style="font-size:.75rem;opacity:.85">Responsabilidad, ética y acompañamiento en cada viaje</span>
+    <a href="https://www.instagram.com/xiabitravels/" class="topbar-social">IG</a>
+    <a href="https://wa.me/8298362020" class="topbar-social">WA</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <div class="nav-logo-icon">XT</div>
+    <div class="nav-logo-text">Xiabi Travels <span>Agencia de Viajes & Turismo</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#inicio" class="active">Inicio</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#destinos">Tours Nacionales</a></li>
+    <li><a href="#destinos">Tours Internacionales</a></li>
+    <li><a href="https://wa.me/8298362020?text=Hola!%20Quiero%20información%20sobre%20viajes." class="nav-cta">✈ Escríbenos</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">✈ Agencia de Viajes y Turismo — RD</div>
+    <h1>Descubre destinos <span>extraordinarios</span> con Xiabi Travels</h1>
+    <p class="hero-sub">Acompañamiento personalizado y logística segura para que tú solo te enfoques en disfrutar, conectar y crear recuerdos para toda la vida.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/8298362020?text=Hola%20Xiabi!%20Quiero%20planificar%20un%20viaje." class="btn-orange">💬 Habla con nosotros</a>
+      <a href="#destinos" class="btn-white-outline">Ver destinos →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="stat-n">500+</span>
+      <span class="stat-l">Clientes felices</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-n">30+</span>
+      <span class="stat-l">Destinos</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-n">5 ★</span>
+      <span class="stat-l">Calificación</span>
+    </div>
+  </div>
+</section>
+
+<!-- RIBBON -->
+<div class="ribbon">
+  <div class="ribbon-item"><span class="ribbon-dot"></span>Boletos Aéreos</div>
+  <div class="ribbon-item"><span class="ribbon-dot"></span>Tours Nacionales</div>
+  <div class="ribbon-item"><span class="ribbon-dot"></span>Tours Internacionales</div>
+  <div class="ribbon-item"><span class="ribbon-dot"></span>Cruceros</div>
+  <div class="ribbon-item"><span class="ribbon-dot"></span>Hoteles</div>
+  <div class="ribbon-item"><span class="ribbon-dot"></span>Paquetes Completos</div>
+  <div class="ribbon-item"><span class="ribbon-dot"></span>Seguros de Viaje</div>
+  <div class="ribbon-item"><span class="ribbon-dot"></span>Excursiones</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-bg" id="servicios">
+  <div class="section-center" style="max-width:1200px;margin:0 auto">
+    <p class="section-tag">Lo que ofrecemos</p>
+    <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+    <div class="title-bar"></div>
+    <p class="section-sub">Brindamos asesoría honesta, información clara y acompañamiento antes, durante y después del viaje. Nunca viajas solo.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80" alt="Boletos Aéreos">
+      <h3>Boletos Aéreos</h3>
+      <p>Rutas nacionales e internacionales con las mejores aerolíneas y tarifas optimizadas para cada presupuesto.</p>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=600&q=80" alt="Hoteles">
+      <h3>Hoteles & Resorts</h3>
+      <p>Alojamientos seguros, confortables y verificados en cualquier parte del mundo, desde boutique hasta todo incluido.</p>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" alt="Tours Internacionales">
+      <h3>Tours Internacionales</h3>
+      <p>Europa, Latinoamérica, Norteamérica y más. Diseñamos el itinerario perfecto para cada aventura internacional.</p>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1501644898242-cfea317d7faf?auto=format&fit=crop&w=600&q=80" alt="Tours Nacionales">
+      <h3>Tours Nacionales</h3>
+      <p>Descubre la belleza de la República Dominicana con nuestras excursiones a Isla Saona, Punta Cana y más.</p>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&w=600&q=80" alt="Cruceros">
+      <h3>Cruceros</h3>
+      <p>Descubre el mundo navegando. Te asesoramos para elegir la mejor ruta, naviera y cabina según tus sueños.</p>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=600&q=80" alt="Paquetes Completos">
+      <h3>Paquetes Completos</h3>
+      <p>Todo incluido: vuelo, hotel, tours y más. Paquetes personalizados para familias, parejas y grupos.</p>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=600&q=80" alt="Seguros de Viaje">
+      <h3>Seguros de Viaje</h3>
+      <p>Cobertura médica y de equipaje completa. Viaja protegido ante cualquier imprevisto en el camino.</p>
+    </div>
+    <div class="svc-card">
+      <img class="svc-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Luna de Miel">
+      <h3>Luna de Miel</h3>
+      <p>Experiencias románticas e inolvidables diseñadas especialmente para parejas que comienzan su nueva vida juntos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="nosotros">
+  <div class="about-wrap">
+    <div class="about-images">
+      <img class="about-img1" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80" alt="Viajeros">
+      <img class="about-img2" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=80" alt="Asesora Xiabi Travels">
+      <div class="about-badge">
+        <strong>+5</strong>
+        <span>años de experiencia</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-tag">Sobre Nosotros</p>
+      <h2 class="section-title">Tu viaje, nuestra <span>mayor responsabilidad</span></h2>
+      <div class="title-bar"></div>
+      <p>En <strong>Xiabi Travels</strong> creemos que viajar no es solo trasladarse de un lugar a otro. Es vivir experiencias que dejan recuerdos para toda la vida y transforman la manera en que ves el mundo.</p>
+      <p>Somos una agencia comprometida con la excelencia, la transparencia y el acompañamiento personalizado. Más que vender boletos, diseñamos experiencias seguras y adaptadas a las necesidades de cada cliente.</p>
+      <blockquote>"Para nosotros, cada viaje representa la confianza que depositas en nuestras manos, y la honramos con compromiso, claridad y atención en cada detalle."</blockquote>
+      <ul class="check-list">
+        <li>Asesoría personalizada sin costo</li>
+        <li>Acompañamiento antes, durante y después del viaje</li>
+        <li>Precios transparentes, sin sorpresas</li>
+        <li>Guiados por valores de fe, honestidad e integridad</li>
+      </ul>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20hablar%20con%20un%20asesor%20de%20Xiabi%20Travels." class="btn-orange" style="display:inline-flex">Habla con un asesor →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section id="destinos" style="background:var(--gray-light)">
+  <div class="dest-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem">
+      <div>
+        <p class="section-tag">Explora el mundo</p>
+        <h2 class="section-title">Destinos que te <span>esperan</span></h2>
+        <div class="title-bar"></div>
+      </div>
+      <a href="https://wa.me/8298362020?text=Quiero%20información%20sobre%20destinos." class="btn-orange">Ver todos los destinos</a>
+    </div>
+    <div class="dest-tabs">
+      <div class="dest-tab active">Todos</div>
+      <div class="dest-tab">Nacionales</div>
+      <div class="dest-tab">Internacionales</div>
+    </div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80" alt="Europa">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-info">
+          <p class="dest-cat">✈ Internacional</p>
+          <h3 class="dest-name">Europa</h3>
+        </div>
+        <a href="https://wa.me/8298362020?text=Quiero%20información%20sobre%20Europa." class="dest-cta">→</a>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1501644898242-cfea317d7faf?auto=format&fit=crop&w=600&q=80" alt="Isla Saona">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-info">
+          <p class="dest-cat">🌴 Nacional</p>
+          <h3 class="dest-name">Isla Saona</h3>
+        </div>
+        <a href="https://wa.me/8298362020?text=Quiero%20información%20sobre%20Isla%20Saona." class="dest-cta">→</a>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80" alt="Cancún">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-info">
+          <p class="dest-cat">✈ Internacional</p>
+          <h3 class="dest-name">Cancún</h3>
+        </div>
+        <a href="https://wa.me/8298362020?text=Quiero%20información%20sobre%20Cancún." class="dest-cta">→</a>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Punta Cana">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-info">
+          <p class="dest-cat">🌴 Nacional</p>
+          <h3 class="dest-name">Punta Cana</h3>
+        </div>
+        <a href="https://wa.me/8298362020?text=Quiero%20información%20sobre%20Punta%20Cana." class="dest-cta">→</a>
+      </div>
+      <div class="dest-card">
+        <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=600&q=80" alt="Medellín">
+        <div class="dest-card-overlay"></div>
+        <div class="dest-card-info">
+          <p class="dest-cat">✈ Internacional</p>
+          <h3 class="dest-name">Medellín</h3>
+        </div>
+        <a href="https://wa.me/8298362020?text=Quiero%20información%20sobre%20Medellín." class="dest-cta">→</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-bg">
+  <div class="values-inner">
+    <div class="values-text">
+      <p class="section-tag">Nuestra base ética</p>
+      <h2 class="section-title">Valores que nos <span style="color:var(--orange)">guían</span></h2>
+      <div class="title-bar"></div>
+      <p>Trabajamos con responsabilidad, ética y fe. Nuestras decisiones y el trato hacia ti están fundamentados en estos pilares inquebrantables. Cuando viajas con nosotros, llevas la tranquilidad de saber que un equipo comprometido vela por ti en cada paso.</p>
+      <br>
+      <a href="https://wa.me/8298362020" class="btn-orange">Conoce más sobre nosotros</a>
+    </div>
+    <div class="values-grid">
+      <div class="val-item">
+        <span class="val-icon">🤝</span>
+        <h4>Honestidad</h4>
+        <p>Transparencia en cada precio, proceso y promesa que hacemos.</p>
+      </div>
+      <div class="val-item">
+        <span class="val-icon">⚖️</span>
+        <h4>Integridad</h4>
+        <p>Actuamos siempre con coherencia, rectitud y ética profesional.</p>
+      </div>
+      <div class="val-item">
+        <span class="val-icon">💛</span>
+        <h4>Compromiso</h4>
+        <p>Tu viaje es nuestra prioridad número uno antes, durante y después.</p>
+      </div>
+      <div class="val-item">
+        <span class="val-icon">❤️</span>
+        <h4>Servicio al Prójimo</h4>
+        <p>Personas cuidando de personas con vocación genuina y amor.</p>
+      </div>
+      <div class="val-item">
+        <span class="val-icon">🙏</span>
+        <h4>Fe & Principios</h4>
+        <p>Guiados por principios cristianos en cada decisión que tomamos.</p>
+      </div>
+      <div class="val-item">
+        <span class="val-icon">🌟</span>
+        <h4>Excelencia</h4>
+        <p>Nunca nos conformamos; siempre buscamos superar tus expectativas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-bg">
+  <div class="section-center" style="max-width:1100px;margin:0 auto">
+    <p class="section-tag">Lo que dicen nuestros clientes</p>
+    <h2 class="section-title">Experiencias que <span>inspiran</span></h2>
+    <div class="title-bar"></div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>Xiabi Travels organizó nuestro viaje a Europa de principio a fin. Todo estuvo perfecto: vuelos, hoteles y tours. Sin duda volvemos a usar sus servicios.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">ML</div>
+        <div><p class="testi-name">María López</p><p class="testi-loc">Santo Domingo, RD</p></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>Excelente servicio y atención personalizada. Nos asesoraron en todo momento y nuestro viaje a Cancún fue una experiencia increíble. ¡100% recomendados!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">JR</div>
+        <div><p class="testi-name">Juan Rodríguez</p><p class="testi-loc">Santiago, RD</p></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>Confiables, honestos y muy profesionales. Organizaron nuestra luna de miel y fue absolutamente mágica. Gracias por hacer ese momento tan especial.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SC</div>
+        <div><p class="testi-name">Sandra & Carlos</p><p class="testi-loc">Santo Domingo, RD</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>¿Lista para vivir tu próxima aventura?</h2>
+  <p>Habla con uno de nuestros asesores hoy mismo y recibe tu cotización personalizada sin ningún costo adicional.</p>
+  <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20recibir%20una%20cotización%20para%20un%20viaje." class="btn-white">💬 Obtén tu cotización gratis</a>
+</div>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <p class="section-tag">Contáctanos</p>
+      <h2 class="section-title">Estamos aquí para <span>ayudarte</span></h2>
+      <div class="title-bar"></div>
+      <p class="section-sub">Nuestro equipo está disponible para asesorarte y diseñar el viaje de tus sueños. No dejes que la logística te detenga.</p>
+      <div class="c-item">
+        <div class="c-icon">📞</div>
+        <div><p class="c-label">Teléfono / WhatsApp</p><p class="c-value">(829) 836-2020</p></div>
+      </div>
+      <div class="c-item">
+        <div class="c-icon">✉️</div>
+        <div><p class="c-label">Correo electrónico</p><p class="c-value">info@xiabitravels.com</p></div>
+      </div>
+      <div class="c-item">
+        <div class="c-icon">📍</div>
+        <div><p class="c-label">Ubicación</p><p class="c-value">Santo Domingo, República Dominicana</p></div>
+      </div>
+      <div class="c-item">
+        <div class="c-icon">🕐</div>
+        <div><p class="c-label">Horario de atención</p><p class="c-value">Lun – Vie: 9:00am – 6:00pm<br>Sáb: 9:00am – 1:00pm</p></div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+          <div><label>Apellido</label><input type="text" placeholder="Tu apellido"></div>
+        </div>
+        <div><label>Correo electrónico</label><input type="email" placeholder="tu@email.com"></div>
+        <div><label>Teléfono / WhatsApp</label><input type="tel" placeholder="(809) 000-0000"></div>
+        <div>
+          <label>¿Qué tipo de viaje buscas?</label>
+          <select>
+            <option value="">Selecciona una opción</option>
+            <option>Tour Nacional</option>
+            <option>Tour Internacional</option>
+            <option>Boleto Aéreo</option>
+            <option>Crucero</option>
+            <option>Paquete Familiar</option>
+            <option>Luna de Miel</option>
+            <option>Viaje de Grupos</option>
+          </select>
+        </div>
+        <div><label>Cuéntanos tu sueño de viaje</label><textarea placeholder="¿A dónde quieres ir? ¿Cuántas personas? ¿Fechas aproximadas?"></textarea></div>
+        <button class="btn-teal" onclick="window.open('https://wa.me/8298362020?text=Hola!%20Quiero%20planificar%20un%20viaje.','_blank')">💬 Enviar por WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo-wrap">
+        <div class="footer-logo-icon">XT</div>
+        <span class="footer-logo-text" style="color:white">Xiabi Travels</span>
+      </div>
+      <p>Agencia de viajes guiada por la ética, el compromiso y la fe. Tu confianza es nuestra mayor responsabilidad en cada destino.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/xiabitravels/" class="fsoc">IG</a>
+        <a href="https://wa.me/8298362020" class="fsoc">WA</a>
+        <a href="https://www.facebook.com/" class="fsoc">FB</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Menú</h4>
+      <ul class="footer-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#destinos">Destinos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul class="footer-links">
+        <li><a href="#">Boletos Aéreos</a></li>
+        <li><a href="#">Tours Nacionales</a></li>
+        <li><a href="#">Tours Internacionales</a></li>
+        <li><a href="#">Cruceros</a></li>
+        <li><a href="#">Paquetes Completos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul class="footer-links">
+        <li><a href="tel:8298362020">(829) 836-2020</a></li>
+        <li><a href="mailto:info@xiabitravels.com">info@xiabitravels.com</a></li>
+        <li><a href="#">Santo Domingo, RD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Xiabi Travels · Todos los derechos reservados</p>
+    <p>Diseñado por <span class="powered">Aura Marketing Agency</span></p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/8298362020?text=Hola%20Xiabi%20Travels!" class="wa" title="Escríbenos">
+  <div class="wa-tooltip">¡Escríbenos ahora!</div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+document.querySelectorAll('.dest-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.dest-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
