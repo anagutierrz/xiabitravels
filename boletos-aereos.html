@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Boletos Aéreos | Xiabi Travels</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--t:#00B5A6;--td:#008F82;--tl:#E0F7F5;--o:#F5A623;--od:#D9891A;--nv:#0D2340;--dk:#1C1C1C;--gy:#606060;--gl:#F4F6F8;--bd:#E5E8EB}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;color:var(--dk);overflow-x:hidden}
+.topbar{background:var(--nv);color:#fff;padding:.45rem 5%;display:flex;justify-content:space-between;align-items:center;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:500;gap:.5rem;flex-wrap:wrap}
+.tb-l{display:flex;gap:1.2rem;flex-wrap:wrap}
+.tb-l a{color:rgba(255,255,255,.82);text-decoration:none;display:flex;align-items:center;gap:.3rem;transition:color .2s}
+.tb-l a:hover{color:#fff}
+.tb-r{display:flex;gap:.6rem;align-items:center}
+.tb-sl{font-size:.68rem;color:rgba(255,255,255,.5);display:none}
+@media(min-width:768px){.tb-sl{display:block}}
+.tb-sc{width:26px;height:26px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.65);text-decoration:none;font-size:.68rem;transition:all .2s}
+.tb-sc:hover{background:var(--t);border-color:var(--t);color:#fff}
+nav{background:#fff;padding:.7rem 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:300;box-shadow:0 2px 14px rgba(0,0,0,.09)}
+.n-logo{text-decoration:none;display:flex;align-items:center}
+.n-logo img{height:46px;width:auto;object-fit:contain}
+.n-fb{display:none;align-items:center;gap:.4rem}
+.n-fb .ic{width:42px;height:42px;background:var(--t);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;color:#fff;font-size:.85rem}
+.n-fb .tx b{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:900;color:var(--t)}
+.n-fb .tx span{display:block;font-family:'Montserrat',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.18em;color:var(--gy);text-transform:uppercase}
+.n-lks{display:flex;gap:1.2rem;list-style:none;align-items:center}
+.n-lks a{color:var(--dk);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
+.n-lks a:hover,.n-lks a.cur{color:var(--t)}
+.ncta{background:var(--o)!important;color:#fff!important;padding:.52rem 1.2rem;border-radius:25px;transition:background .2s!important}
+.ncta:hover{background:var(--od)!important}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none;z-index:400}
+.hbg span{display:block;width:24px;height:2px;background:var(--dk);border-radius:2px;transition:all .3s}
+.hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.open span:nth-child(2){opacity:0}
+.hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mm{display:none;position:fixed;inset:0;background:#fff;z-index:250;flex-direction:column;padding:5.5rem 2rem 2rem;gap:0;overflow-y:auto}
+.mm.open{display:flex}
+.mm a{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;color:var(--dk);text-decoration:none;padding:.85rem 0;border-bottom:1px solid var(--bd);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem}
+.mm a:hover{color:var(--t)}
+.mm .mmc{background:var(--o);color:#fff!important;border-radius:12px;border:none!important;padding:.9rem;justify-content:center;margin-top:1rem}
+.mmc:hover{background:var(--od)!important}
+.mct{margin-top:.8rem;display:flex;flex-direction:column}
+.mct a{font-size:.85rem;color:var(--gy)!important;text-transform:none!important;letter-spacing:0!important;border:none!important;padding:.4rem 0!important;font-weight:600!important}
+@media(max-width:900px){.n-lks{display:none}.hbg{display:flex}}
+
+/* PAGE HERO BANNER */
+.phero{background:var(--nv);padding:5rem 5% 3.5rem;position:relative;overflow:hidden}
+.phero-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
+.phero-ov{position:absolute;inset:0;z-index:1}
+.phero-cnt{position:relative;z-index:2;max-width:700px}
+.phero-bc{display:flex;align-items:center;gap:.5rem;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;margin-bottom:1.2rem;flex-wrap:wrap}
+.phero-bc a{color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.phero-bc a:hover{color:#fff}
+.phero-bc span{color:rgba(255,255,255,.4)}
+.phero-bc .cur{color:var(--o)}
+.phero-tag{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--o);margin-bottom:.6rem}
+.phero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.9rem,5vw,3.2rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:.9rem}
+.phero-sub{color:rgba(255,255,255,.82);font-size:.96rem;line-height:1.8;max-width:520px;margin-bottom:1.5rem}
+.btn-o{display:inline-flex;align-items:center;gap:.4rem;background:var(--o);color:#fff;padding:.8rem 1.8rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:700;text-decoration:none;box-shadow:0 6px 22px rgba(245,166,35,.4);transition:all .25s}
+.btn-o:hover{background:var(--od);transform:translateY(-2px)}
+
+/* CATALOG */
+.catalog{padding:4rem 5%;max-width:1240px;margin:0 auto}
+.cat-hd{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
+.stag{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--t);margin-bottom:.4rem}
+.stitle{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;line-height:1.2}
+.stitle span{color:var(--o)}
+.sbar{width:46px;height:4px;background:var(--t);border-radius:2px;margin:.6rem 0 0}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.cf{padding:.45rem 1.1rem;border:1.5px solid var(--bd);border-radius:25px;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;color:var(--gy);cursor:pointer;background:#fff;transition:all .25s;white-space:nowrap;border:none;outline:none}
+.cf:hover,.cf.on{background:var(--t);color:#fff}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+@media(max-width:900px){.tgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.tgrid{grid-template-columns:1fr}}
+
+/* TOUR CARD */
+.tc{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s;display:flex;flex-direction:column}
+.tc:hover{transform:translateY(-5px);box-shadow:0 18px 48px rgba(0,0,0,.11)}
+.tc-img{position:relative;height:195px;overflow:hidden;flex-shrink:0}
+.tc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tc:hover .tc-img img{transform:scale(1.06)}
+.tc-bdg{position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.tc-bdg.pop{background:var(--t)}
+.tc-fav{position:absolute;top:.8rem;right:.8rem;width:32px;height:32px;background:rgba(255,255,255,.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;cursor:pointer;border:none;transition:background .2s}
+.tc-fav:hover{background:#fff}
+.tc-body{padding:1.2rem;flex:1;display:flex;flex-direction:column;gap:.4rem}
+.tc-cat{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t)}
+.tc-name{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:var(--dk);line-height:1.3}
+.tc-inc{list-style:none;display:flex;flex-direction:column;gap:.28rem;margin:.3rem 0}
+.tc-inc li{font-size:.76rem;color:var(--gy);display:flex;align-items:flex-start;gap:.38rem;line-height:1.4}
+.tc-inc li::before{content:'✓';color:var(--t);font-weight:900;font-size:.68rem;margin-top:.1rem;flex-shrink:0}
+.tc-ft{display:flex;justify-content:space-between;align-items:center;padding-top:.8rem;border-top:1px solid var(--bd);margin-top:auto}
+.tc-plbl{font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.tc-price{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:900;color:var(--o)}
+.tc-price sub{font-size:.62rem;font-weight:600;color:var(--gy)}
+.tc-btn{background:var(--t);color:#fff;border:none;padding:.5rem 1.1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;cursor:pointer;transition:all .25s;text-decoration:none;white-space:nowrap}
+.tc-btn:hover{background:var(--td);transform:translateY(-1px)}
+
+/* CTA BAND */
+.cta{background:var(--t);padding:3.5rem 5%;text-align:center;position:relative;overflow:hidden}
+.cta::before,.cta::after{content:'';position:absolute;border-radius:50%;background:rgba(255,255,255,.06)}
+.cta::before{width:280px;height:280px;right:-70px;top:-70px}
+.cta::after{width:200px;height:200px;left:-50px;bottom:-50px}
+.cta h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3vw,2.3rem);font-weight:900;color:#fff;margin-bottom:.6rem;position:relative;z-index:1}
+.cta p{color:rgba(255,255,255,.88);margin-bottom:1.6rem;max-width:480px;margin-left:auto;margin-right:auto;font-size:.92rem;position:relative;z-index:1}
+.btn-wt{display:inline-flex;align-items:center;gap:.4rem;background:#fff;color:var(--t);padding:.82rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.86rem;font-weight:800;text-decoration:none;box-shadow:0 5px 20px rgba(0,0,0,.12);transition:all .25s;position:relative;z-index:1}
+.btn-wt:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.16)}
+
+/* FOOTER */
+footer{background:var(--nv);color:#fff;padding:3.5rem 5% 1.5rem}
+.f-gr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+@media(max-width:768px){.f-gr{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.f-gr{grid-template-columns:1fr}}
+.f-lw{display:flex;align-items:center;gap:.5rem;margin-bottom:.9rem}
+.f-lw img{height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1) opacity(.9)}
+.f-lw-fb{display:none;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.05rem;color:#fff}
+.f-br p{font-size:.8rem;color:rgba(255,255,255,.48);line-height:1.8;margin:.8rem 0}
+.f-sc{display:flex;gap:.55rem}
+.fsc{width:34px;height:34px;border:1px solid rgba(255,255,255,.16);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;transition:all .2s}
+.fsc:hover{background:var(--t);border-color:var(--t);color:#fff}
+.f-col h4{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--t);margin-bottom:.9rem}
+.f-lk{list-style:none;display:flex;flex-direction:column;gap:.42rem}
+.f-lk a{color:rgba(255,255,255,.48);text-decoration:none;font-size:.8rem;transition:color .2s}
+.f-lk a:hover{color:#fff}
+.f-bt{border-top:1px solid rgba(255,255,255,.07);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.f-bt p{font-size:.72rem;color:rgba(255,255,255,.32);margin:0}
+.aura{color:var(--o)!important;font-weight:700}
+.wa{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,.5);animation:wap 3s infinite;transition:transform .2s}
+.wa:hover{transform:scale(1.1)}
+@keyframes wap{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.5)}50%{box-shadow:0 4px 30px rgba(37,211,102,.75),0 0 0 10px rgba(37,211,102,.08)}}
+.wa svg{width:30px;height:30px;fill:#fff}
+.wa-tip{position:absolute;right:68px;background:var(--dk);color:#fff;padding:.4rem .9rem;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none}
+.wa:hover .wa-tip{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="tb-l">
+    <a href="tel:8298362020">📞 (829) 836-2020</a>
+    <a href="mailto:info@xiabitravels.com">✉ info@xiabitravels.com</a>
+  </div>
+  <div class="tb-r">
+    <span class="tb-sl">Responsabilidad, ética y acompañamiento en cada viaje</span>
+    <a href="https://www.instagram.com/xiabitravels/" class="tb-sc">IG</a>
+    <a href="https://wa.me/8298362020" class="tb-sc">WA</a>
+  </div>
+</div>
+<nav>
+  <a href="index.html" class="n-logo">
+    <img src="https://xiabitravels.vercel.app/logoxiabi.jpeg" alt="Xiabi Travels"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="n-fb">
+      <div class="ic">XT</div>
+      <div class="tx"><b>Xiabi<span style="color:var(--o)">.</span></b><span>TRAVELS</span></div>
+    </div>
+  </a>
+  <ul class="n-lks"><li><a href="index.html">Inicio</a></li><li><a href="excursiones-nacionales.html">🌴 Excursiones</a></li><li><a href="boletos-aereos.html" class="cur">✈ Aéreos</a></li><li><a href="tours-internacionales.html">🌍 Tours</a></li><li><a href="cruceros.html">🚢 Cruceros</a></li><li><a href="resorts.html">🏨 Resorts</a></li><li><a href="https://wa.me/8298362020?text=Hola!%20Quiero%20información." class="ncta">Escríbenos</a></li></ul>
+  <button class="hbg" id="hbtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mm" id="mobMenu">
+  <a href="index.html">Inicio</a>
+<a href="excursiones-nacionales.html">🌴 Excursiones</a>
+<a href="boletos-aereos.html">✈ Aéreos</a>
+<a href="tours-internacionales.html">🌍 Tours</a>
+<a href="cruceros.html">🚢 Cruceros</a>
+<a href="resorts.html">🏨 Resorts</a>
+
+  <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20información." class="mmc">💬 Escríbenos por WhatsApp</a>
+  <div class="mct">
+    <a href="tel:8298362020">📞 (829) 836-2020</a>
+    <a href="mailto:info@xiabitravels.com">✉ info@xiabitravels.com</a>
+  </div>
+</div>
+
+
+<div class="phero">
+  <div class="phero-bg" style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80')"></div>
+  <div class="phero-ov" style="background:linear-gradient(135deg,rgba(13,35,64,.88) 0%,rgba(0,181,166,.75) 100%)"></div>
+  <div class="phero-cnt">
+    <div class="phero-bc">
+      <a href="index.html">🏠 Inicio</a>
+      <span>›</span>
+      <span class="cur">Boletos Aéreos</span>
+    </div>
+    <p class="phero-tag">✈ Vuelos Nacionales e Internacionales</p>
+    <h1>Boletos Aéreos</h1>
+    <p class="phero-sub">Encontramos las mejores tarifas para tu vuelo con acompañamiento completo: documentación, check-in, equipaje y más.</p>
+    <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20un%20boleto%20aéreo." class="btn-o">💬 Cotizar mi vuelo</a>
+  </div>
+</div>
+<div style="max-width:1240px;margin:0 auto;padding:3.5rem 5% 0">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+    <div><p class="stag">Rutas disponibles</p><h2 class="stitle">Nuestros <span>Vuelos</span></h2><div class="sbar"></div></div>
+  </div>
+  <div class="tgrid">
+<div class="tc">
+  <div class="tc-img">
+    <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=700&q=80" alt="SD → Miami (Ida y vuelta)">
+    <span class="tc-bdg pop">🇺🇸 Popular</span>
+    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
+  </div>
+  <div class="tc-body">
+    <span class="tc-cat">✈ Vuelo Internacional</span>
+    <h3 class="tc-name">SD → Miami (Ida y vuelta)</h3>
+    <ul class="tc-inc"><li>Vuelo directo o con escala</li><li>Equipaje de mano incluido</li><li>Asistencia en check-in</li><li>Asesoría en documentación</li><li>Seguro de viaje opcional</li></ul>
+    <div class="tc-ft">
+      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$280 <sub>pp</sub></p></div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20vuelo%20SD-Miami." class="tc-btn">Cotizar</a>
+    </div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-img">
+    <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=700&q=80" alt="SD → Europa">
+    <span class="tc-bdg">🇪🇺 Europa</span>
+    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
+  </div>
+  <div class="tc-body">
+    <span class="tc-cat">✈ Vuelo Internacional</span>
+    <h3 class="tc-name">SD → Europa</h3>
+    <ul class="tc-inc"><li>Vuelo a Madrid, París, Roma y más</li><li>Equipaje de bodega (23kg) incluido</li><li>Selección del asiento</li><li>Asistencia completa en documentación</li><li>Opción de seguro de viaje</li></ul>
+    <div class="tc-ft">
+      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$750 <sub>pp</sub></p></div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20vuelo%20a%20Europa." class="tc-btn">Cotizar</a>
+    </div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-img">
+    <img src="https://images.unsplash.com/photo-1587019158091-1a103c5dd17f?auto=format&fit=crop&w=700&q=80" alt="SD → Latinoamérica">
+    <span class="tc-bdg">🌎 LATAM</span>
+    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
+  </div>
+  <div class="tc-body">
+    <span class="tc-cat">✈ Vuelo Internacional</span>
+    <h3 class="tc-name">SD → Latinoamérica</h3>
+    <ul class="tc-inc"><li>Colombia, Perú, México, Chile y más</li><li>Vuelo ida y vuelta</li><li>Asistencia completa pre-viaje</li><li>Alertas de mejor tarifa</li><li>Apoyo con visas si aplica</li></ul>
+    <div class="tc-ft">
+      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$380 <sub>pp</sub></p></div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20vuelo%20a%20Latinoamérica." class="tc-btn">Cotizar</a>
+    </div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-img">
+    <img src="https://images.unsplash.com/photo-1485871800671-7e3f87da09e3?auto=format&fit=crop&w=700&q=80" alt="SD → New York / Boston">
+    <span class="tc-bdg">🗽 USA</span>
+    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
+  </div>
+  <div class="tc-body">
+    <span class="tc-cat">✈ Vuelo Internacional</span>
+    <h3 class="tc-name">SD → New York / Boston</h3>
+    <ul class="tc-inc"><li>Vuelo desde SDQ/STI</li><li>Gestión de documentación ESTA</li><li>Equipaje de bodega opcional</li><li>Asesoría para visa B1/B2</li><li>Conexiones o directo según disponibilidad</li></ul>
+    <div class="tc-ft">
+      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$320 <sub>pp</sub></p></div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20vuelo%20a%20New%20York." class="tc-btn">Cotizar</a>
+    </div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-img">
+    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=700&q=80" alt="Vuelos Nacionales RD">
+    <span class="tc-bdg">🌴 Nacional</span>
+    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
+  </div>
+  <div class="tc-body">
+    <span class="tc-cat">✈ Vuelo Nacional</span>
+    <h3 class="tc-name">Vuelos Nacionales RD</h3>
+    <ul class="tc-inc"><li>SD ↔ Punta Cana · SD ↔ Santiago</li><li>Mejor tarifa garantizada</li><li>Equipaje de mano</li><li>Asistencia en aeropuerto</li><li>Ideal para grupos y familias</li></ul>
+    <div class="tc-ft">
+      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde RD$3,500 <sub>pp</sub></p></div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20un%20vuelo%20nacional." class="tc-btn">Cotizar</a>
+    </div>
+  </div>
+</div>
+<div class="tc">
+  <div class="tc-img">
+    <img src="https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6?auto=format&fit=crop&w=700&q=80" alt="Asesoría para Visa de Viaje">
+    <span class="tc-bdg">📋 Visa</span>
+    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
+  </div>
+  <div class="tc-body">
+    <span class="tc-cat">🎓 Visa & Documentación</span>
+    <h3 class="tc-name">Asesoría para Visa de Viaje</h3>
+    <ul class="tc-inc"><li>Asesoría visa USA (B1/B2)</li><li>Asesoría visa Schengen (Europa)</li><li>Checklist de documentos requeridos</li><li>Revisión de formularios</li><li>Acompañamiento en todo el proceso</li></ul>
+    <div class="tc-ft">
+      <div><p class="tc-plbl">Servicio</p><p class="tc-price">Desde US$50 <sub>asesoría</sub></p></div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20asesoría%20para%20visa%20de%20viaje." class="tc-btn">Cotizar</a>
+    </div>
+  </div>
+</div></div>
+</div>
+
+<div class="cta">
+  <h2>¿Lista para vivir tu próxima aventura?</h2>
+  <p>Habla con nuestros asesores y recibe tu cotización personalizada sin costo adicional.</p>
+  <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20un%20boleto%20aéreo." class="btn-wt">💬 Obtén tu cotización gratis</a>
+</div>
+
+<footer>
+  <div class="f-gr">
+    <div class="f-br">
+      <div class="f-lw">
+        <img src="https://xiabitravels.vercel.app/logoxiabi.jpeg" alt="Xiabi Travels" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="f-lw-fb">Xiabi Travels</span>
+      </div>
+      <p>Agencia de viajes guiada por la ética, el compromiso y la fe. Tu confianza es nuestra mayor responsabilidad en cada destino.</p>
+      <div class="f-sc">
+        <a href="https://www.instagram.com/xiabitravels/" class="fsc">IG</a>
+        <a href="https://wa.me/8298362020" class="fsc">WA</a>
+        <a href="#" class="fsc">FB</a>
+      </div>
+    </div>
+    <div class="f-col"><h4>Menú</h4><ul class="f-lk">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="index.html#nosotros">Nosotros</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Servicios</h4><ul class="f-lk">
+      <li><a href="excursiones-nacionales.html">Excursiones Nacionales</a></li>
+      <li><a href="boletos-aereos.html">Boletos Aéreos</a></li>
+      <li><a href="tours-internacionales.html">Tours Internacionales</a></li>
+      <li><a href="cruceros.html">Cruceros</a></li>
+      <li><a href="resorts.html">Resorts</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Contacto</h4><ul class="f-lk">
+      <li><a href="tel:8298362020">(829) 836-2020</a></li>
+      <li><a href="mailto:info@xiabitravels.com">info@xiabitravels.com</a></li>
+      <li><a href="#">Santo Domingo, RD</a></li>
+      <li><a href="https://www.instagram.com/xiabitravels/">@xiabitravels</a></li>
+    </ul></div>
+  </div>
+  <div class="f-bt">
+    <p>© 2026 Xiabi Travels · Todos los derechos reservados</p>
+    <p>Diseñado por <span class="aura">Aura Marketing Agency</span></p>
+  </div>
+</footer>
+<a href="https://wa.me/8298362020?text=Hola%20Xiabi%20Travels!" class="wa">
+  <div class="wa-tip">¡Escríbenos!</div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script>
+function toggleMenu(){const b=document.getElementById('hbtn'),m=document.getElementById('mobMenu');b.classList.toggle('open');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';}
+function closeMenu(){document.getElementById('hbtn').classList.remove('open');document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow='';}
+</script>
+</body>
+</html>
