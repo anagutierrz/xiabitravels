@@ -281,22 +281,115 @@ footer{background:var(--nv);color:#fff;padding:3.5rem 5% 1.5rem}
 
 <!-- SEARCH -->
 <div class="srch">
+  <!-- TABS -->
   <div class="s-tabs">
-    <div class="stab on" onclick="stab(this)">✈ Aéreos</div>
-    <div class="stab" onclick="stab(this)">🏨 Hoteles</div>
-    <div class="stab" onclick="stab(this)">📦 Aéreos + Hotel</div>
-    <div class="stab" onclick="stab(this)">🗺 Excursiones</div>
-    <div class="stab" onclick="stab(this)">🚢 Cruceros</div>
+    <div class="stab on" onclick="switchTab('aereos',this)">✈ Aéreos</div>
+    <div class="stab" onclick="switchTab('hoteles',this)">🏨 Hoteles</div>
+    <div class="stab" onclick="switchTab('aereos-hotel',this)">📦 Aéreos + Hotel</div>
+    <div class="stab" onclick="switchTab('excursiones',this)">🗺 Excursiones</div>
+    <div class="stab" onclick="switchTab('cruceros',this)">🚢 Cruceros</div>
   </div>
-  <div class="s-flds">
-    <div class="sf"><label>📍 Origen</label><input type="text" placeholder="Santo Domingo"></div>
-    <div class="sf"><label>🌍 Destino</label><input type="text" placeholder="¿A dónde vas?"></div>
-    <div class="sf" style="max-width:155px"><label>📅 Salida</label><input type="date"></div>
-    <div class="sf" style="max-width:155px"><label>📅 Regreso</label><input type="date"></div>
-    <div class="sf" style="max-width:95px"><label>👥 Personas</label><input type="number" min="1" value="1"></div>
-    <button class="btn-srch" onclick="window.open('https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20un%20viaje.','_blank')">🔍 Buscar</button>
+
+  <!-- PANEL: Hoteles (único con formulario) -->
+  <div id="tab-hoteles" class="s-panel" style="display:none">
+    <div class="s-flds">
+      <div class="sf"><label>🌍 Destino</label><input type="text" id="h-destino" placeholder="¿A dónde quieres ir?"></div>
+      <div class="sf" style="max-width:155px"><label>📅 Llegada</label><input type="date" id="h-entrada"></div>
+      <div class="sf" style="max-width:155px"><label>📅 Salida</label><input type="date" id="h-salida"></div>
+      <div class="sf" style="max-width:110px"><label>🧑 Adultos</label><input type="number" id="h-adultos" min="1" value="1"></div>
+      <div class="sf" style="max-width:110px"><label>👶 Niños</label><input type="number" id="h-ninos" min="0" value="0"></div>
+      <button class="btn-srch" onclick="cotizarHotel()">🔍 Cotizar</button>
+    </div>
+    <p style="font-size:.72rem;color:var(--gy);margin-top:.7rem;font-family:'Montserrat',sans-serif">
+      * Al hacer clic, un asesor recibirá tu consulta y te confirmará disponibilidad y precios por WhatsApp.
+    </p>
+  </div>
+
+  <!-- PANEL: Aéreos (CTA directo) -->
+  <div id="tab-aereos" class="s-panel">
+    <div class="s-wa-cta">
+      <div class="wa-cta-icon">✈</div>
+      <div>
+        <p class="wa-cta-title">Boletos Aéreos Nacionales e Internacionales</p>
+        <p class="wa-cta-sub">Cuéntanos tu ruta y fechas — un asesor te busca la mejor tarifa disponible.</p>
+      </div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20un%20boleto%20aéreo." target="_blank" class="btn-srch">💬 Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- PANEL: Aéreos + Hotel (CTA directo) -->
+  <div id="tab-aereos-hotel" class="s-panel" style="display:none">
+    <div class="s-wa-cta">
+      <div class="wa-cta-icon">📦</div>
+      <div>
+        <p class="wa-cta-title">Paquete Vuelo + Hotel Todo Incluido</p>
+        <p class="wa-cta-sub">Dinos destino, fechas y número de personas — armamos tu paquete completo.</p>
+      </div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20un%20paquete%20Aéreo%20+%20Hotel." target="_blank" class="btn-srch">💬 Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- PANEL: Excursiones (CTA directo) -->
+  <div id="tab-excursiones" class="s-panel" style="display:none">
+    <div class="s-wa-cta">
+      <div class="wa-cta-icon">🗺</div>
+      <div>
+        <p class="wa-cta-title">Excursiones Nacionales e Internacionales</p>
+        <p class="wa-cta-sub">Elige tu destino y nosotros diseñamos la excursión perfecta para ti y tu grupo.</p>
+      </div>
+      <a href="excursiones-nacionales.html" class="btn-srch" style="background:var(--o)">Ver excursiones →</a>
+    </div>
+  </div>
+
+  <!-- PANEL: Cruceros (CTA directo) -->
+  <div id="tab-cruceros" class="s-panel" style="display:none">
+    <div class="s-wa-cta">
+      <div class="wa-cta-icon">🚢</div>
+      <div>
+        <p class="wa-cta-title">Cruceros por el Caribe, Europa y el Mundo</p>
+        <p class="wa-cta-sub">Selección de rutas, navieras y cabinas. Un asesor te guía paso a paso.</p>
+      </div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesan%20los%20cruceros." target="_blank" class="btn-srch">💬 Cotizar por WhatsApp</a>
+    </div>
   </div>
 </div>
+
+<style>
+.s-panel{padding-top:1.2rem}
+.s-wa-cta{display:flex;align-items:center;gap:1.5rem;background:var(--gl);border-radius:12px;padding:1.2rem 1.5rem;flex-wrap:wrap}
+.wa-cta-icon{font-size:2.2rem;flex-shrink:0}
+.s-wa-cta > div:nth-child(2){flex:1;min-width:180px}
+.wa-cta-title{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:800;color:var(--dk);margin-bottom:.25rem}
+.wa-cta-sub{font-size:.8rem;color:var(--gy);line-height:1.5}
+@media(max-width:600px){.s-wa-cta{flex-direction:column;text-align:center}.btn-srch{width:100%;justify-content:center}}
+</style>
+
+<script>
+function switchTab(id, el) {
+  document.querySelectorAll('.s-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.stab').forEach(t => t.classList.remove('on'));
+  document.getElementById('tab-' + id).style.display = 'block';
+  el.classList.add('on');
+}
+
+function cotizarHotel() {
+  const destino  = document.getElementById('h-destino').value  || 'No especificado';
+  const entrada  = document.getElementById('h-entrada').value  || 'No especificada';
+  const salida   = document.getElementById('h-salida').value   || 'No especificada';
+  const adultos  = document.getElementById('h-adultos').value  || '1';
+  const ninos    = document.getElementById('h-ninos').value    || '0';
+
+  const msg = `Hola! Quiero cotizar un hotel 🏨\n\n` +
+    `📍 Destino: ${destino}\n` +
+    `📅 Llegada: ${entrada}\n` +
+    `📅 Salida: ${salida}\n` +
+    `🧑 Adultos: ${adultos}\n` +
+    `👶 Niños: ${ninos}\n\n` +
+    `Por favor, confirme disponibilidad y precios. ¡Gracias!`;
+
+  window.open('https://wa.me/8298362020?text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
 
 <!-- RIBBON -->
 <div class="ribbon">
@@ -394,6 +487,194 @@ footer{background:var(--nv);color:#fff;padding:3.5rem 5% 1.5rem}
   </div>
 </div>
 
+<!-- DESTINOS DESTACADOS -->
+<section id="destinos" style="background:var(--gl);padding:4.5rem 5%">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+      <div>
+        <p class="stag">Promociones Irresistibles</p>
+        <h2 class="stitle">Descubre Destinos <span>Extraordinarios</span></h2>
+        <div class="sbar"></div>
+        <p class="ssub">Los paquetes más solicitados por nuestros clientes, con vuelo, hotel y experiencias incluidas.</p>
+      </div>
+      <a href="tours-internacionales.html" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--t);color:#fff;padding:.75rem 1.6rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--td)'" onmouseout="this.style.background='var(--t)'">Ver todos los tours →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem">
+
+      <!-- Colombia -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Colombia%20desde%20US%24595." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=600&q=80" alt="Colombia" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇨🇴 Colombia</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Colombia</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$595</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+      <!-- Brasil -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Brasil%20(Río%20de%20Janeiro)%20desde%20US%241%2C590." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=600&q=80" alt="Brasil" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇧🇷 Brasil</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Brasil — Río de Janeiro</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,590</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+      <!-- Perú -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Perú%20desde%20US%241%2C395." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=600&q=80" alt="Perú" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--t);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🔥 Popular</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">🇵🇪 Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Perú — Machu Picchu</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,395</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+      <!-- Panamá -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Panamá%20desde%20US%241%2C295." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=600&q=80" alt="Panamá" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇵🇦 Panamá</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Panamá</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,295</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+      <!-- Bogotá y Panamá -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20Bogotá%20y%20Panamá%20desde%20US%241%2C195." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1609670090960-a644da7af5e6?auto=format&fit=crop&w=600&q=80" alt="Bogotá y Panamá" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--t);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">⭐ Combo</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">🇨🇴🇵🇦 Tour Combo</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Bogotá y Panamá</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,195</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+      <!-- Europa 4 países -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20Europa%204%20países%20desde%20US%243%2C595." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=600&q=80" alt="Europa" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇪🇺 Europa</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Europeo Completo</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Europa — 4 Países</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$3,595</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+      <!-- Argentina -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Argentina%20desde%20US%242%2C590." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=600&q=80" alt="Argentina" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇦🇷 Argentina</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Argentina — Buenos Aires</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$2,590</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+      <!-- Turquía -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Turquía%20desde%20US%242%2C500." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=600&q=80" alt="Turquía" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇹🇷 Turquía</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Turquía — Estambul</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$2,500</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+      <!-- Dubai -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Dubai%20desde%20US%242%2C995." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubai" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇦🇪 Dubai</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Dubai — Emiratos Árabes</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$2,995</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+      <!-- República Dominicana -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20República%20Dominicana%20desde%20US%24995." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="República Dominicana" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--t);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🌴 Nacional</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Punta Cana · Samaná · Puerto Plata</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">República Dominicana</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$995</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <div class="cta">
   <h2>¿Lista para vivir tu próxima aventura?</h2>
@@ -452,7 +733,6 @@ footer{background:var(--nv);color:#fff;padding:3.5rem 5% 1.5rem}
 <script>
 function toggleMenu(){const b=document.getElementById('hbtn'),m=document.getElementById('mobMenu');b.classList.toggle('open');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';}
 function closeMenu(){document.getElementById('hbtn').classList.remove('open');document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow='';}
-function stab(el){document.querySelectorAll('.stab').forEach(t=>t.classList.remove('on'));el.classList.add('on');}
 </script>
 </body>
 </html>
