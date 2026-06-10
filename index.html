@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Tours Internacionales | Xiabi Travels</title>
+<title>Xiabi Travels | Experiencias con Propósito</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--t:#00B5A6;--td:#008F82;--tl:#E0F7F5;--o:#F5A623;--od:#D9891A;--nv:#0D2340;--dk:#1C1C1C;--gy:#606060;--gl:#F4F6F8;--bd:#E5E8EB}
 html{scroll-behavior:smooth}
 body{font-family:'Open Sans',sans-serif;color:var(--dk);overflow-x:hidden}
+
+/* TOPBAR */
 .topbar{background:var(--nv);color:#fff;padding:.45rem 5%;display:flex;justify-content:space-between;align-items:center;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:500;gap:.5rem;flex-wrap:wrap}
 .tb-l{display:flex;gap:1.2rem;flex-wrap:wrap}
 .tb-l a{color:rgba(255,255,255,.82);text-decoration:none;display:flex;align-items:center;gap:.3rem;transition:color .2s}
@@ -19,95 +21,165 @@ body{font-family:'Open Sans',sans-serif;color:var(--dk);overflow-x:hidden}
 @media(min-width:768px){.tb-sl{display:block}}
 .tb-sc{width:26px;height:26px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.65);text-decoration:none;font-size:.68rem;transition:all .2s}
 .tb-sc:hover{background:var(--t);border-color:var(--t);color:#fff}
+
+/* NAVBAR */
 nav{background:#fff;padding:.55rem 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:300;box-shadow:0 2px 14px rgba(0,0,0,.09)}
 .n-logo{text-decoration:none;display:flex;align-items:center}
 .n-logo img{height:72px;width:auto;object-fit:contain}
-.n-fb{display:none;align-items:center;gap:.4rem}
-.n-fb .ic{width:42px;height:42px;background:var(--t);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;color:#fff;font-size:.85rem}
-.n-fb .tx b{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:900;color:var(--t)}
-.n-fb .tx span{display:block;font-family:'Montserrat',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.18em;color:var(--gy);text-transform:uppercase}
-.n-lks{display:flex;gap:1.2rem;list-style:none;align-items:center}
-.n-lks a{color:var(--dk);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
-.n-lks a:hover,.n-lks a.cur{color:var(--t)}
-.ncta{background:var(--o)!important;color:#fff!important;padding:.52rem 1.2rem;border-radius:25px;transition:background .2s!important}
-.ncta:hover{background:var(--od)!important}
-.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none;z-index:400}
-.hbg span{display:block;width:24px;height:2px;background:var(--dk);border-radius:2px;transition:all .3s}
-.hbg.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hbg.open span:nth-child(2){opacity:0}
-.hbg.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mm{display:none;position:fixed;inset:0;background:#fff;z-index:250;flex-direction:column;padding:5.5rem 2rem 2rem;gap:0;overflow-y:auto}
-.mm.open{display:flex}
-.mm a{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;color:var(--dk);text-decoration:none;padding:.85rem 0;border-bottom:1px solid var(--bd);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem}
-.mm a:hover{color:var(--t)}
-.mm .mmc{background:var(--o);color:#fff!important;border-radius:12px;border:none!important;padding:.9rem;justify-content:center;margin-top:1rem}
-.mmc:hover{background:var(--od)!important}
-.mct{margin-top:.8rem;display:flex;flex-direction:column}
-.mct a{font-size:.85rem;color:var(--gy)!important;text-transform:none!important;letter-spacing:0!important;border:none!important;padding:.4rem 0!important;font-weight:600!important}
-@media(max-width:900px){.n-lks{display:none}.hbg{display:flex}}
+.n-logo-fb{display:none;align-items:center;gap:.4rem}
+.n-logo-fb .ic{width:42px;height:42px;background:var(--t);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;color:#fff;font-size:.85rem}
+.n-logo-fb .tx{line-height:1.1}
+.n-logo-fb .tx b{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--t)}
+.n-logo-fb .tx span{display:block;font-family:'Montserrat',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.18em;color:var(--gy);text-transform:uppercase}
+.n-links{display:flex;gap:1.4rem;list-style:none;align-items:center}
+.n-links a{color:var(--dk);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
+.n-links a:hover,.n-links a.cur{color:var(--t)}
+.n-cta{background:var(--o)!important;color:#fff!important;padding:.55rem 1.3rem;border-radius:25px;transition:background .2s,transform .2s!important}
+.n-cta:hover{background:var(--od)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none;z-index:400}
+.hamburger span{display:block;width:24px;height:2px;background:var(--dk);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-menu{display:none;position:fixed;inset:0;background:#fff;z-index:250;flex-direction:column;padding:5.5rem 2rem 2rem;gap:0;overflow-y:auto}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:700;color:var(--dk);text-decoration:none;padding:.9rem 0;border-bottom:1px solid var(--bd);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.mob-menu a:hover{color:var(--t)}
+.mob-menu .mc{background:var(--o);color:#fff!important;border-radius:12px;border:none!important;padding:.9rem;justify-content:center;margin-top:1rem}
+.mob-menu .mc:hover{background:var(--od)!important}
+.mob-contact{margin-top:.8rem;display:flex;flex-direction:column}
+.mob-contact a{font-size:.88rem;color:var(--gy)!important;text-transform:none!important;letter-spacing:0!important;border:none!important;padding:.4rem 0!important;font-weight:600!important}
+@media(max-width:900px){.n-links{display:none}.hamburger{display:flex}}
 
-/* PAGE HERO BANNER */
-.phero{background:var(--nv);padding:5rem 5% 3.5rem;position:relative;overflow:hidden}
-.phero-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
-.phero-ov{position:absolute;inset:0;z-index:1}
-.phero-cnt{position:relative;z-index:2;max-width:700px}
-.phero-bc{display:flex;align-items:center;gap:.5rem;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;margin-bottom:1.2rem;flex-wrap:wrap}
-.phero-bc a{color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
-.phero-bc a:hover{color:#fff}
-.phero-bc span{color:rgba(255,255,255,.4)}
-.phero-bc .cur{color:var(--o)}
-.phero-tag{font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--o);margin-bottom:.6rem}
-.phero h1{font-family:'Montserrat',sans-serif;font-size:clamp(1.9rem,5vw,3.2rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:.9rem}
-.phero-sub{color:rgba(255,255,255,.82);font-size:.96rem;line-height:1.8;max-width:520px;margin-bottom:1.5rem}
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.h-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover;z-index:0}
+.h-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,181,166,.85) 0%,rgba(13,35,64,.82) 100%);z-index:1}
+.h-cnt{position:relative;z-index:2;padding:6rem 5% 4rem;max-width:680px}
+.h-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:.35rem .9rem;border-radius:25px;font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:1.1rem}
+.h-badge::before{content:'';width:7px;height:7px;background:var(--o);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.h-cnt h1{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,5.5vw,3.8rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem}
+.h-cnt h1 em{color:var(--o);font-style:italic;display:block}
+.h-sub{color:rgba(255,255,255,.88);font-size:clamp(.88rem,2vw,1rem);line-height:1.8;max-width:460px;margin-bottom:1.8rem}
+.h-btns{display:flex;gap:.8rem;flex-wrap:wrap}
 .btn-o{display:inline-flex;align-items:center;gap:.4rem;background:var(--o);color:#fff;padding:.8rem 1.8rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:700;text-decoration:none;box-shadow:0 6px 22px rgba(245,166,35,.4);transition:all .25s}
 .btn-o:hover{background:var(--od);transform:translateY(-2px)}
+.btn-w{display:inline-flex;align-items:center;gap:.4rem;border:2px solid rgba(255,255,255,.6);color:#fff;padding:.8rem 1.8rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:600;text-decoration:none;transition:all .25s}
+.btn-w:hover{background:rgba(255,255,255,.14)}
+.h-stats{position:absolute;bottom:0;right:0;z-index:2;display:flex}
+.hs{background:rgba(0,0,0,.3);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.14);border-left:1px solid rgba(255,255,255,.1);padding:1rem 1.7rem;text-align:center;color:#fff}
+.hs strong{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:900;color:var(--o);display:block;line-height:1}
+.hs span{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+@media(max-width:580px){.h-stats{display:none}}
 
-/* CATALOG */
-.catalog{padding:4rem 5%;max-width:1240px;margin:0 auto}
-.cat-hd{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
-.stag{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--t);margin-bottom:.4rem}
-.stitle{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;line-height:1.2}
+/* SEARCH */
+.srch{background:#fff;box-shadow:0 6px 30px rgba(0,0,0,.1);padding:0 5% 1.4rem}
+.s-tabs{display:flex;overflow-x:auto;border-bottom:2px solid var(--bd);-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.s-tabs::-webkit-scrollbar{display:none}
+.stab{padding:.8rem 1.1rem;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;color:var(--gy);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .25s;display:flex;align-items:center;gap:.35rem;text-transform:uppercase;letter-spacing:.04em;flex-shrink:0}
+.stab.on{color:var(--t);border-bottom-color:var(--t)}
+.s-flds{display:flex;gap:.8rem;align-items:flex-end;flex-wrap:wrap;padding-top:1.2rem}
+.sf{display:flex;flex-direction:column;gap:.3rem;flex:1;min-width:130px}
+.sf label{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gy)}
+.sf input,.sf select{padding:.68rem .9rem;border:1.5px solid var(--bd);border-radius:8px;font-family:'Open Sans',sans-serif;font-size:.86rem;color:var(--dk);outline:none;transition:border-color .2s;background:#fff;width:100%;appearance:none}
+.sf input:focus,.sf select:focus{border-color:var(--t)}
+.btn-srch{background:var(--t);color:#fff;border:none;padding:.78rem 1.8rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.84rem;font-weight:700;cursor:pointer;transition:all .25s;white-space:nowrap;display:flex;align-items:center;gap:.4rem;flex-shrink:0}
+.btn-srch:hover{background:var(--td);transform:translateY(-1px)}
+@media(max-width:600px){.s-flds{flex-direction:column}.sf{min-width:100%}.btn-srch{width:100%;justify-content:center}}
+
+/* RIBBON */
+.ribbon{background:var(--t);color:#fff;padding:.65rem 5%;display:flex;gap:2rem;overflow:hidden;white-space:nowrap;font-family:'Montserrat',sans-serif;font-size:.76rem;font-weight:700}
+.ri{display:flex;align-items:center;gap:.5rem;flex-shrink:0;opacity:.92}
+.rd{width:5px;height:5px;background:var(--o);border-radius:50%}
+
+/* SECTION */
+section{padding:4.5rem 5%}
+.stag{font-family:'Montserrat',sans-serif;font-size:.66rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--t);margin-bottom:.5rem}
+.stitle{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:900;line-height:1.2;margin-bottom:.6rem}
 .stitle span{color:var(--o)}
-.sbar{width:46px;height:4px;background:var(--t);border-radius:2px;margin:.6rem 0 0}
-.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
-.cf{padding:.45rem 1.1rem;border:1.5px solid var(--bd);border-radius:25px;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;color:var(--gy);cursor:pointer;background:#fff;transition:all .25s;white-space:nowrap;border:none;outline:none}
-.cf:hover,.cf.on{background:var(--t);color:#fff}
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
-@media(max-width:900px){.tgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:540px){.tgrid{grid-template-columns:1fr}}
+.sbar{width:46px;height:4px;background:var(--t);border-radius:2px;margin-bottom:1.4rem}
+.ssub{color:var(--gy);line-height:1.85;font-size:.9rem;max-width:540px}
+.ctr{text-align:center}.ctr .sbar,.ctr .ssub{margin-left:auto;margin-right:auto}
 
-/* TOUR CARD */
-.tc{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s;display:flex;flex-direction:column}
-.tc:hover{transform:translateY(-5px);box-shadow:0 18px 48px rgba(0,0,0,.11)}
-.tc-img{position:relative;height:195px;overflow:hidden;flex-shrink:0}
-.tc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.tc:hover .tc-img img{transform:scale(1.06)}
-.tc-bdg{position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
-.tc-bdg.pop{background:var(--t)}
-.tc-fav{position:absolute;top:.8rem;right:.8rem;width:32px;height:32px;background:rgba(255,255,255,.88);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;cursor:pointer;border:none;transition:background .2s}
-.tc-fav:hover{background:#fff}
-.tc-body{padding:1.2rem;flex:1;display:flex;flex-direction:column;gap:.4rem}
-.tc-cat{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t)}
-.tc-name{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:var(--dk);line-height:1.3}
-.tc-inc{list-style:none;display:flex;flex-direction:column;gap:.28rem;margin:.3rem 0}
-.tc-inc li{font-size:.76rem;color:var(--gy);display:flex;align-items:flex-start;gap:.38rem;line-height:1.4}
-.tc-inc li::before{content:'✓';color:var(--t);font-weight:900;font-size:.68rem;margin-top:.1rem;flex-shrink:0}
-.tc-ft{display:flex;justify-content:space-between;align-items:center;padding-top:.8rem;border-top:1px solid var(--bd);margin-top:auto}
-.tc-plbl{font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-.tc-price{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:900;color:var(--o)}
-.tc-price sub{font-size:.62rem;font-weight:600;color:var(--gy)}
-.tc-btn{background:var(--t);color:#fff;border:none;padding:.5rem 1.1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;cursor:pointer;transition:all .25s;text-decoration:none;white-space:nowrap}
-.tc-btn:hover{background:var(--td);transform:translateY(-1px)}
+/* SERVICES MOSAIC */
+.svc-bg{background:var(--gl)}
+.svc-hd{max-width:1200px;margin:0 auto 2rem}
+.mosaic{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;max-width:1200px;margin:0 auto}
+.tile{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;aspect-ratio:4/3;text-decoration:none;display:block}
+.tile:first-child{grid-column:1/2;grid-row:1/3;aspect-ratio:auto}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tile:hover img{transform:scale(1.07)}
+.t-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.05) 55%);transition:background .3s}
+.tile:hover .t-ov{background:linear-gradient(to top,rgba(0,181,166,.82) 0%,rgba(0,181,166,.12) 70%)}
+.t-info{position:absolute;bottom:0;left:0;right:0;padding:1.1rem 1.2rem}
+.t-cat{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--o);margin-bottom:.2rem}
+.t-name{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.03em}
+.tile:first-child .t-name{font-size:1.4rem}
+.t-arr{position:absolute;top:1rem;right:1rem;width:34px;height:34px;background:var(--o);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;opacity:0;transition:opacity .3s}
+.tile:hover .t-arr{opacity:1}
+@media(max-width:768px){.mosaic{grid-template-columns:1fr 1fr}.tile:first-child{grid-column:1/3;grid-row:auto;aspect-ratio:16/7}}
+@media(max-width:480px){.mosaic{grid-template-columns:1fr}.tile:first-child{grid-column:auto;aspect-ratio:4/3}}
+
+/* ABOUT */
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1200px;margin:0 auto;align-items:center}
+.ab-imgs{position:relative;height:440px}
+.ai1{position:absolute;left:0;top:0;width:68%;height:100%;object-fit:cover;border-radius:16px}
+.ai2{position:absolute;right:0;bottom:2rem;width:46%;height:52%;object-fit:cover;border-radius:16px;border:5px solid #fff;box-shadow:0 10px 36px rgba(0,0,0,.13)}
+.ai-badge{position:absolute;left:1rem;top:1.5rem;background:var(--o);color:#fff;padding:.9rem 1.1rem;border-radius:12px;font-family:'Montserrat',sans-serif;text-align:center;z-index:2;box-shadow:0 6px 20px rgba(245,166,35,.35)}
+.ai-badge strong{display:block;font-size:1.8rem;font-weight:900;line-height:1}
+.ai-badge span{font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:.9}
+.ab-txt p{color:var(--gy);line-height:1.9;font-size:.92rem;margin-bottom:.9rem}
+.ab-txt blockquote{margin:1rem 0;padding:1rem 1.1rem;background:var(--tl);border-left:4px solid var(--t);border-radius:0 10px 10px 0;font-size:.9rem;color:#006B60;font-style:italic;line-height:1.7}
+.chk{list-style:none;margin:.8rem 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.chk li{display:flex;align-items:center;gap:.65rem;font-size:.86rem;color:var(--dk);font-weight:600}
+.chk li::before{content:'✓';width:20px;height:20px;min-width:20px;background:var(--t);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:900}
+@media(max-width:860px){.ab-grid{grid-template-columns:1fr;gap:2rem}.ab-imgs{height:260px}.ai-badge{top:.8rem;left:.8rem}}
+
+/* MVV */
+.mvv{background:var(--nv);padding:4.5rem 5%}
+.mvv-in{max-width:1100px;margin:0 auto}
+.mvv-gr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-top:2.5rem}
+.mc{border-radius:16px;padding:2rem;position:relative;overflow:hidden}
+.mc.ms{background:linear-gradient(135deg,var(--t) 0%,var(--td) 100%)}
+.mc.mv{background:linear-gradient(135deg,var(--o) 0%,var(--od) 100%)}
+.mc.ml{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13)}
+.mc::before{content:'';position:absolute;right:-18px;top:-18px;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.08)}
+.mc-ic{font-size:2rem;margin-bottom:.9rem;display:block}
+.mc-lb{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.4rem}
+.mc h3{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:.7rem}
+.mc p{font-size:.86rem;color:rgba(255,255,255,.88);line-height:1.8}
+.vt-wrap{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}
+.vt{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);color:#fff;padding:.3rem .75rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700}
+@media(max-width:768px){.mvv-gr{grid-template-columns:1fr;gap:1rem}}
 
 /* CTA BAND */
-.cta{background:var(--t);padding:3.5rem 5%;text-align:center;position:relative;overflow:hidden}
+.cta{background:var(--t);padding:4rem 5%;text-align:center;position:relative;overflow:hidden}
 .cta::before,.cta::after{content:'';position:absolute;border-radius:50%;background:rgba(255,255,255,.06)}
-.cta::before{width:280px;height:280px;right:-70px;top:-70px}
-.cta::after{width:200px;height:200px;left:-50px;bottom:-50px}
-.cta h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3vw,2.3rem);font-weight:900;color:#fff;margin-bottom:.6rem;position:relative;z-index:1}
-.cta p{color:rgba(255,255,255,.88);margin-bottom:1.6rem;max-width:480px;margin-left:auto;margin-right:auto;font-size:.92rem;position:relative;z-index:1}
-.btn-wt{display:inline-flex;align-items:center;gap:.4rem;background:#fff;color:var(--t);padding:.82rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.86rem;font-weight:800;text-decoration:none;box-shadow:0 5px 20px rgba(0,0,0,.12);transition:all .25s;position:relative;z-index:1}
-.btn-wt:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.16)}
+.cta::before{width:300px;height:300px;right:-80px;top:-80px}
+.cta::after{width:220px;height:220px;left:-60px;bottom:-60px}
+.cta h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:900;color:#fff;margin-bottom:.7rem;position:relative;z-index:1}
+.cta p{color:rgba(255,255,255,.88);margin-bottom:1.8rem;max-width:500px;margin-left:auto;margin-right:auto;font-size:.93rem;position:relative;z-index:1}
+.btn-wt{display:inline-flex;align-items:center;gap:.45rem;background:#fff;color:var(--t);padding:.85rem 2.2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.88rem;font-weight:800;text-decoration:none;box-shadow:0 5px 22px rgba(0,0,0,.12);transition:all .25s;position:relative;z-index:1}
+.btn-wt:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,.18)}
+
+/* CONTACT */
+.ct-in{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1100px;margin:0 auto}
+@media(max-width:768px){.ct-in{grid-template-columns:1fr;gap:2rem}}
+.cr{display:flex;align-items:flex-start;gap:.9rem;padding:.9rem 0;border-bottom:1px solid var(--bd)}
+.cr-ic{width:44px;height:44px;min-width:44px;background:var(--tl);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.cr-lb{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--t);margin-bottom:.15rem}
+.cr-vl{font-size:.88rem;color:var(--dk);font-weight:600}
+.cf{display:flex;flex-direction:column;gap:.9rem}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:480px){.fr{grid-template-columns:1fr}}
+.fg{display:flex;flex-direction:column;gap:.3rem}
+.fg label{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gy)}
+.fg input,.fg select,.fg textarea{padding:.74rem .95rem;border:1.5px solid var(--bd);border-radius:10px;font-family:'Open Sans',sans-serif;font-size:.88rem;color:var(--dk);outline:none;transition:border-color .2s;background:#fff;width:100%;appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--t)}
+.fg textarea{resize:vertical;min-height:100px}
+.btn-tf{width:100%;background:var(--t);color:#fff;border:none;padding:.88rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:800;cursor:pointer;transition:all .25s;box-shadow:0 4px 18px rgba(0,181,166,.28)}
+.btn-tf:hover{background:var(--td);transform:translateY(-1px)}
 
 /* FOOTER */
 footer{background:var(--nv);color:#fff;padding:3.5rem 5% 1.5rem}
@@ -128,6 +200,8 @@ footer{background:var(--nv);color:#fff;padding:3.5rem 5% 1.5rem}
 .f-bt{border-top:1px solid rgba(255,255,255,.07);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
 .f-bt p{font-size:.72rem;color:rgba(255,255,255,.32);margin:0}
 .aura{color:var(--o)!important;font-weight:700}
+
+/* WA */
 .wa{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,.5);animation:wap 3s infinite;transition:transform .2s}
 .wa:hover{transform:scale(1.1)}
 @keyframes wap{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.5)}50%{box-shadow:0 4px 30px rgba(37,211,102,.75),0 0 0 10px rgba(37,211,102,.08)}}
@@ -149,223 +223,492 @@ footer{background:var(--nv);color:#fff;padding:3.5rem 5% 1.5rem}
     <a href="https://wa.me/8298362020" class="tb-sc">WA</a>
   </div>
 </div>
+
 <nav>
   <a href="index.html" class="n-logo">
     <img src="https://xiabitravels.vercel.app/logoxiabi.jpeg" alt="Xiabi Travels"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <div class="n-fb">
+    <div class="n-logo-fb">
       <div class="ic">XT</div>
       <div class="tx"><b>Xiabi<span style="color:var(--o)">.</span></b><span>TRAVELS</span></div>
     </div>
   </a>
-  <ul class="n-lks"><li><a href="index.html">Inicio</a></li><li><a href="excursiones-nacionales.html">🌴 Excursiones</a></li><li><a href="boletos-aereos.html">✈ Aéreos</a></li><li><a href="tours-internacionales.html" class="cur">🌍 Tours</a></li><li><a href="cruceros.html">🚢 Cruceros</a></li><li><a href="resorts.html">🏨 Resorts</a></li><li><a href="https://wa.me/8298362020?text=Hola!%20Quiero%20información." class="ncta">Escríbenos</a></li></ul>
-  <button class="hbg" id="hbtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <ul class="n-links">
+    <li><a href="index.html" class="cur">Inicio</a></li>
+    <li><a href="excursiones-nacionales.html">🌴 Excursiones</a></li>
+    <li><a href="boletos-aereos.html">✈ Aéreos</a></li>
+    <li><a href="tours-internacionales.html">🌍 Tours</a></li>
+    <li><a href="cruceros.html">🚢 Cruceros</a></li>
+    <li><a href="resorts.html">🏨 Resorts</a></li>
+    <li><a href="#contacto" class="n-cta">Escríbenos</a></li>
+  </ul>
+  <button class="hamburger" id="hbtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
-<div class="mm" id="mobMenu">
-  <a href="index.html">Inicio</a>
-<a href="excursiones-nacionales.html">🌴 Excursiones</a>
-<a href="boletos-aereos.html">✈ Aéreos</a>
-<a href="tours-internacionales.html">🌍 Tours</a>
-<a href="cruceros.html">🚢 Cruceros</a>
-<a href="resorts.html">🏨 Resorts</a>
 
-  <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20información." class="mmc">💬 Escríbenos por WhatsApp</a>
-  <div class="mct">
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">🏠 Inicio</a>
+  <a href="excursiones-nacionales.html" onclick="closeMenu()">🌴 Excursiones Nacionales</a>
+  <a href="boletos-aereos.html" onclick="closeMenu()">✈ Boletos Aéreos</a>
+  <a href="tours-internacionales.html" onclick="closeMenu()">🌍 Tours Internacionales</a>
+  <a href="cruceros.html" onclick="closeMenu()">🚢 Cruceros</a>
+  <a href="resorts.html" onclick="closeMenu()">🏨 Resorts</a>
+  <a href="#contacto" class="mc" onclick="closeMenu()">💬 Escríbenos por WhatsApp</a>
+  <div class="mob-contact">
     <a href="tel:8298362020">📞 (829) 836-2020</a>
     <a href="mailto:info@xiabitravels.com">✉ info@xiabitravels.com</a>
   </div>
 </div>
 
+<!-- HERO -->
+<section class="hero">
+  <div class="h-bg"></div>
+  <div class="h-ov"></div>
+  <div class="h-cnt">
+    <div class="h-badge">✦ Agencia de Viajes · Santo Domingo, RD</div>
+    <h1>Descubre destinos extraordinarios,<em>¡Xiabi Travels te lleva!</em></h1>
+    <p class="h-sub">Acompañamiento personalizado y logística segura para que tú solo te enfoques en disfrutar, conectar y crear recuerdos que duran toda la vida.</p>
+    <div class="h-btns">
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20planificar%20un%20viaje." class="btn-o">💬 ¡Ponte en contacto!</a>
+      <a href="tours-internacionales.html" class="btn-w">Ver paquetes →</a>
+    </div>
+  </div>
+  <div class="h-stats">
+    <div class="hs"><strong>500+</strong><span>Clientes felices</span></div>
+    <div class="hs"><strong>30+</strong><span>Destinos</span></div>
+    <div class="hs"><strong>5★</strong><span>Calificación</span></div>
+  </div>
+</section>
 
-<div class="phero">
-  <div class="phero-bg" style="background-image:url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1920&q=80')"></div>
-  <div class="phero-ov" style="background:linear-gradient(135deg,rgba(13,35,64,.85) 0%,rgba(0,181,166,.72) 100%)"></div>
-  <div class="phero-cnt">
-    <div class="phero-bc">
-      <a href="index.html">🏠 Inicio</a>
-      <span>›</span>
-      <span class="cur">Tours Internacionales</span>
+<!-- SEARCH -->
+<div class="srch">
+  <!-- TABS -->
+  <div class="s-tabs">
+    <div class="stab on" onclick="switchTab('aereos',this)">✈ Aéreos</div>
+    <div class="stab" onclick="switchTab('hoteles',this)">🏨 Hoteles</div>
+    <div class="stab" onclick="switchTab('aereos-hotel',this)">📦 Aéreos + Hotel</div>
+    <div class="stab" onclick="switchTab('excursiones',this)">🗺 Excursiones</div>
+    <div class="stab" onclick="switchTab('cruceros',this)">🚢 Cruceros</div>
+  </div>
+
+  <!-- PANEL: Hoteles (único con formulario) -->
+  <div id="tab-hoteles" class="s-panel" style="display:none">
+    <div class="s-flds">
+      <div class="sf"><label>🌍 Destino</label><input type="text" id="h-destino" placeholder="¿A dónde quieres ir?"></div>
+      <div class="sf" style="max-width:155px"><label>📅 Llegada</label><input type="date" id="h-entrada"></div>
+      <div class="sf" style="max-width:155px"><label>📅 Salida</label><input type="date" id="h-salida"></div>
+      <div class="sf" style="max-width:110px"><label>🧑 Adultos</label><input type="number" id="h-adultos" min="1" value="1"></div>
+      <div class="sf" style="max-width:110px"><label>👶 Niños</label><input type="number" id="h-ninos" min="0" value="0"></div>
+      <button class="btn-srch" onclick="cotizarHotel()">🔍 Cotizar</button>
     </div>
-    <p class="phero-tag">🌍 Explora el mundo</p>
-    <h1>Tours Internacionales</h1>
-    <p class="phero-sub">Itinerarios completos, guías en español y logística impecable en los destinos más hermosos del mundo. Nosotros nos encargamos de todo.</p>
-    <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20información%20sobre%20Tours%20Internacionales." class="btn-o">💬 Cotizar tour internacional</a>
+    <p style="font-size:.72rem;color:var(--gy);margin-top:.7rem;font-family:'Montserrat',sans-serif">
+      * Al hacer clic, un asesor recibirá tu consulta y te confirmará disponibilidad y precios por WhatsApp.
+    </p>
   </div>
-</div>
-<div style="max-width:1240px;margin:0 auto;padding:3.5rem 5% 0">
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
-    <div><p class="stag">Catálogo Internacional</p><h2 class="stitle">Nuestros <span>Tours</span></h2><div class="sbar"></div></div>
-  </div>
-  <div class="tgrid">
-<div class="tc">
-  <div class="tc-img">
-    <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=700&q=80" alt="Tour Medellín">
-    <span class="tc-bdg pop">🔥 Popular</span>
-    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
-  </div>
-  <div class="tc-body">
-    <span class="tc-cat">🇨🇴 Colombia</span>
-    <h3 class="tc-name">Tour Medellín</h3>
-    <ul class="tc-inc"><li>Vuelo ida y vuelta desde SD</li><li>Hotel 4 noches (doble)</li><li>Tour Ciudad de la Eterna Primavera</li><li>Traslados aeropuerto-hotel</li><li>Desayuno incluido</li></ul>
-    <div class="tc-ft">
-      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$595 <sub>pp</sub></p></div>
-      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20Tour%20Medellín%20desde%20%24595." class="tc-btn">Cotizar</a>
-    </div>
-  </div>
-</div>
-<div class="tc">
-  <div class="tc-img">
-    <img src="https://images.unsplash.com/photo-1609670090960-a644da7af5e6?auto=format&fit=crop&w=700&q=80" alt="Tour Bogotá y Medellín">
-    <span class="tc-bdg">⭐ Completo</span>
-    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
-  </div>
-  <div class="tc-body">
-    <span class="tc-cat">🇨🇴 Colombia</span>
-    <h3 class="tc-name">Tour Bogotá y Medellín</h3>
-    <ul class="tc-inc"><li>Vuelo ida y vuelta desde SD</li><li>4 noches Bogotá + 4 noches Medellín</li><li>City tour en ambas ciudades</li><li>Traslados internos incluidos</li><li>Desayuno incluido todos los días</li><li>Guía turístico en español</li></ul>
-    <div class="tc-ft">
-      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$975 <sub>pp</sub></p></div>
-      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20Tour%20Bogotá%20y%20Medellín%20desde%20%24975." class="tc-btn">Cotizar</a>
+
+  <!-- PANEL: Aéreos (CTA directo) -->
+  <div id="tab-aereos" class="s-panel">
+    <div class="s-wa-cta">
+      <div class="wa-cta-icon">✈</div>
+      <div>
+        <p class="wa-cta-title">Boletos Aéreos Nacionales e Internacionales</p>
+        <p class="wa-cta-sub">Cuéntanos tu ruta y fechas — un asesor te busca la mejor tarifa disponible.</p>
+      </div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20un%20boleto%20aéreo." target="_blank" class="btn-srch">💬 Cotizar por WhatsApp</a>
     </div>
   </div>
-</div>
-<div class="tc">
-  <div class="tc-img">
-    <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=700&q=80" alt="Tour Perú — Machu Picchu">
-    <span class="tc-bdg">🏔 Perú</span>
-    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
-  </div>
-  <div class="tc-body">
-    <span class="tc-cat">🇵🇪 Perú</span>
-    <h3 class="tc-name">Tour Perú — Machu Picchu</h3>
-    <ul class="tc-inc"><li>Vuelo ida y vuelta desde SD</li><li>3 noches Lima + 4 noches Cusco</li><li>Excursión a Machu Picchu</li><li>City tour Lima y Cusco</li><li>Tren a Aguas Calientes incluido</li><li>Desayuno · Guía en español</li></ul>
-    <div class="tc-ft">
-      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$1,300 <sub>pp</sub></p></div>
-      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20Tour%20Perú%20desde%20%241%2C300." class="tc-btn">Cotizar</a>
+
+  <!-- PANEL: Aéreos + Hotel (CTA directo) -->
+  <div id="tab-aereos-hotel" class="s-panel" style="display:none">
+    <div class="s-wa-cta">
+      <div class="wa-cta-icon">📦</div>
+      <div>
+        <p class="wa-cta-title">Paquete Vuelo + Hotel Todo Incluido</p>
+        <p class="wa-cta-sub">Dinos destino, fechas y número de personas — armamos tu paquete completo.</p>
+      </div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20un%20paquete%20Aéreo%20+%20Hotel." target="_blank" class="btn-srch">💬 Cotizar por WhatsApp</a>
     </div>
   </div>
-</div>
-<div class="tc">
-  <div class="tc-img">
-    <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=700&q=80" alt="Tour Madrid & París">
-    <span class="tc-bdg">🇪🇺 Europa</span>
-    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
-  </div>
-  <div class="tc-body">
-    <span class="tc-cat">🇪🇺 Europa</span>
-    <h3 class="tc-name">Tour Madrid & París</h3>
-    <ul class="tc-inc"><li>Vuelo ida y vuelta desde SD</li><li>4 noches Madrid + 4 noches París</li><li>City tour en ambas ciudades</li><li>Tren Madrid-París incluido</li><li>Desayuno incluido</li><li>Museos principales</li></ul>
-    <div class="tc-ft">
-      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$1,350 <sub>pp</sub></p></div>
-      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20Tour%20Madrid%20y%20París%20desde%20%241%2C350." class="tc-btn">Cotizar</a>
+
+  <!-- PANEL: Excursiones (CTA directo) -->
+  <div id="tab-excursiones" class="s-panel" style="display:none">
+    <div class="s-wa-cta">
+      <div class="wa-cta-icon">🗺</div>
+      <div>
+        <p class="wa-cta-title">Excursiones Nacionales e Internacionales</p>
+        <p class="wa-cta-sub">Elige tu destino y nosotros diseñamos la excursión perfecta para ti y tu grupo.</p>
+      </div>
+      <a href="excursiones-nacionales.html" class="btn-srch" style="background:var(--o)">Ver excursiones →</a>
     </div>
   </div>
-</div>
-<div class="tc">
-  <div class="tc-img">
-    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=700&q=80" alt="Cancún Todo Incluido">
-    <span class="tc-bdg">🇲🇽 México</span>
-    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
-  </div>
-  <div class="tc-body">
-    <span class="tc-cat">🇲🇽 México</span>
-    <h3 class="tc-name">Cancún Todo Incluido</h3>
-    <ul class="tc-inc"><li>Vuelo ida y vuelta desde SD</li><li>5 noches en resort todo incluido 5★</li><li>Comidas y bebidas ilimitadas</li><li>Acceso a actividades y piscinas</li><li>Traslados aeropuerto-hotel</li></ul>
-    <div class="tc-ft">
-      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$820 <sub>pp</sub></p></div>
-      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20Cancún%20Todo%20Incluido." class="tc-btn">Cotizar</a>
+
+  <!-- PANEL: Cruceros (CTA directo) -->
+  <div id="tab-cruceros" class="s-panel" style="display:none">
+    <div class="s-wa-cta">
+      <div class="wa-cta-icon">🚢</div>
+      <div>
+        <p class="wa-cta-title">Cruceros por el Caribe, Europa y el Mundo</p>
+        <p class="wa-cta-sub">Selección de rutas, navieras y cabinas. Un asesor te guía paso a paso.</p>
+      </div>
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesan%20los%20cruceros." target="_blank" class="btn-srch">💬 Cotizar por WhatsApp</a>
     </div>
   </div>
-</div>
-<div class="tc">
-  <div class="tc-img">
-    <img src="https://images.unsplash.com/photo-1508361727343-ca787442dcd7?auto=format&fit=crop&w=700&q=80" alt="Tour Perú — Solo para Mujeres">
-    <span class="tc-bdg pop">♀ Solo Mujeres</span>
-    <button class="tc-fav" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</button>
-  </div>
-  <div class="tc-body">
-    <span class="tc-cat">🇵🇪 Perú · Especial</span>
-    <h3 class="tc-name">Tour Perú — Solo para Mujeres</h3>
-    <ul class="tc-inc"><li>Viaje exclusivo para mujeres</li><li>Vuelo + hotel + desayuno</li><li>Grupo máximo 15 personas</li><li>Guía femenina certificada</li><li>Talleres culturales y experiencias locales</li><li>Red de apoyo y seguridad grupal</li></ul>
-    <div class="tc-ft">
-      <div><p class="tc-plbl">Precio por persona</p><p class="tc-price">Desde US$1,781 <sub>pp</sub></p></div>
-      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20Tour%20Perú%20Solo%20Mujeres." class="tc-btn">Cotizar</a>
-    </div>
-  </div>
-</div></div>
 </div>
 
-<!-- DESTINOS POR PRECIO -->
-<section style="background:var(--gl);padding:4.5rem 5%">
-  <div style="max-width:1200px;margin:0 auto">
-    <div style="margin-bottom:2rem">
-      <p class="stag">Promociones Irresistibles</p>
-      <h2 class="stitle">Todos nuestros <span>Destinos</span></h2>
+<style>
+.s-panel{padding-top:1.2rem}
+.s-wa-cta{display:flex;align-items:center;gap:1.5rem;background:var(--gl);border-radius:12px;padding:1.2rem 1.5rem;flex-wrap:wrap}
+.wa-cta-icon{font-size:2.2rem;flex-shrink:0}
+.s-wa-cta > div:nth-child(2){flex:1;min-width:180px}
+.wa-cta-title{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:800;color:var(--dk);margin-bottom:.25rem}
+.wa-cta-sub{font-size:.8rem;color:var(--gy);line-height:1.5}
+@media(max-width:600px){.s-wa-cta{flex-direction:column;text-align:center}.btn-srch{width:100%;justify-content:center}}
+</style>
+
+<script>
+function switchTab(id, el) {
+  document.querySelectorAll('.s-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.stab').forEach(t => t.classList.remove('on'));
+  document.getElementById('tab-' + id).style.display = 'block';
+  el.classList.add('on');
+}
+
+function cotizarHotel() {
+  const destino  = document.getElementById('h-destino').value  || 'No especificado';
+  const entrada  = document.getElementById('h-entrada').value  || 'No especificada';
+  const salida   = document.getElementById('h-salida').value   || 'No especificada';
+  const adultos  = document.getElementById('h-adultos').value  || '1';
+  const ninos    = document.getElementById('h-ninos').value    || '0';
+
+  const msg = `Hola! Quiero cotizar un hotel 🏨\n\n` +
+    `📍 Destino: ${destino}\n` +
+    `📅 Llegada: ${entrada}\n` +
+    `📅 Salida: ${salida}\n` +
+    `🧑 Adultos: ${adultos}\n` +
+    `👶 Niños: ${ninos}\n\n` +
+    `Por favor, confirme disponibilidad y precios. ¡Gracias!`;
+
+  window.open('https://wa.me/8298362020?text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
+
+<!-- RIBBON -->
+<div class="ribbon">
+  <div class="ri"><span class="rd"></span>Excursiones Nacionales</div>
+  <div class="ri"><span class="rd"></span>Boletos Aéreos</div>
+  <div class="ri"><span class="rd"></span>Tours Internacionales</div>
+  <div class="ri"><span class="rd"></span>Cruceros</div>
+  <div class="ri"><span class="rd"></span>Resorts Todo Incluido</div>
+  <div class="ri"><span class="rd"></span>Luna de Miel</div>
+  <div class="ri"><span class="rd"></span>Paquetes Familiares</div>
+</div>
+
+<!-- SERVICES -->
+<section class="svc-bg">
+  <div class="svc-hd">
+    <p class="stag">Lo que ofrecemos</p>
+    <h2 class="stitle">Nuestros <span>Servicios</span></h2>
+    <div class="sbar"></div>
+    <p class="ssub">Asesoría honesta, información clara y acompañamiento antes, durante y después del viaje. Nunca viajas solo.</p>
+  </div>
+  <div class="mosaic">
+    <a class="tile" href="excursiones-nacionales.html">
+      <img src="https://images.unsplash.com/photo-1501644898242-cfea317d7faf?auto=format&fit=crop&w=800&q=80" alt="Excursiones Nacionales">
+      <div class="t-ov"></div>
+      <div class="t-arr">→</div>
+      <div class="t-info"><p class="t-cat">🌴 Nacional</p><p class="t-name">Excursiones Nacionales</p></div>
+    </a>
+    <a class="tile" href="boletos-aereos.html">
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80" alt="Boletos Aéreos">
+      <div class="t-ov"></div>
+      <div class="t-arr">→</div>
+      <div class="t-info"><p class="t-cat">✈ Vuelos</p><p class="t-name">Boletos Aéreos</p></div>
+    </a>
+    <a class="tile" href="cruceros.html">
+      <img src="https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&w=600&q=80" alt="Cruceros">
+      <div class="t-ov"></div>
+      <div class="t-arr">→</div>
+      <div class="t-info"><p class="t-cat">🚢 Marítimo</p><p class="t-name">Cruceros</p></div>
+    </a>
+    <a class="tile" href="tours-internacionales.html">
+      <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" alt="Tours Internacionales">
+      <div class="t-ov"></div>
+      <div class="t-arr">→</div>
+      <div class="t-info"><p class="t-cat">🌍 Internacional</p><p class="t-name">Tours Internacionales</p></div>
+    </a>
+    <a class="tile" href="resorts.html">
+      <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=600&q=80" alt="Resorts">
+      <div class="t-ov"></div>
+      <div class="t-arr">→</div>
+      <div class="t-info"><p class="t-cat">🏨 Alojamiento</p><p class="t-name">Resorts Nacionales e Internacionales</p></div>
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="nosotros">
+  <div class="ab-grid">
+    <div class="ab-imgs">
+      <img class="ai1" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80" alt="Familia viajando">
+      <img class="ai2" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=80" alt="Asesora Xiabi">
+      <div class="ai-badge"><strong>5★</strong><span>Calificación</span></div>
+    </div>
+    <div class="ab-txt">
+      <p class="stag">Sobre Nosotros</p>
+      <h2 class="stitle">Tu viaje, nuestra <span>mayor responsabilidad</span></h2>
       <div class="sbar"></div>
-      <p class="ssub">Cada paquete incluye vuelo, hotel y acompañamiento completo. Haz clic en cualquier destino para cotizar por WhatsApp.</p>
+      <p>En <strong>Xiabi Travels</strong> creemos que viajar no es solo trasladarse de un lugar a otro. Es vivir experiencias que dejan recuerdos para toda la vida y transforman la manera en que ves el mundo.</p>
+      <p>Somos una agencia comprometida con la excelencia, la transparencia y el acompañamiento personalizado. Más que vender boletos, diseñamos experiencias seguras y adaptadas a las necesidades de cada cliente.</p>
+      <blockquote>"Para nosotros, cada viaje representa la confianza que depositas en nuestras manos, y la honramos con compromiso, claridad y atención en cada detalle."</blockquote>
+      <ul class="chk">
+        <li>Asesoría personalizada sin costo</li>
+        <li>Acompañamiento antes, durante y después</li>
+        <li>Precios transparentes, sin sorpresas</li>
+        <li>Guiados por valores de fe, honestidad e integridad</li>
+        <li>+500 clientes satisfechos</li>
+      </ul>
+      <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20hablar%20con%20un%20asesor." class="btn-o" style="display:inline-flex;margin-top:.5rem">💬 Habla con un asesor</a>
+    </div>
+  </div>
+</section>
+
+<!-- MVV -->
+<div class="mvv">
+  <div class="mvv-in">
+    <div class="ctr">
+      <p class="stag" style="color:rgba(255,255,255,.6)">Quiénes somos</p>
+      <h2 class="stitle" style="color:#fff">Nuestra <span style="color:var(--o)">identidad</span></h2>
+      <div class="sbar" style="background:var(--o);margin:0 auto"></div>
+    </div>
+    <div class="mvv-gr">
+      <div class="mc ms"><span class="mc-ic">🎯</span><p class="mc-lb">Misión</p><h3>Lo que hacemos</h3><p>Brindar experiencias de viajes seguras, enriquecedoras y memorables, con un servicio de alta calidad, basado en la honestidad, el respeto y el amor al prójimo.</p></div>
+      <div class="mc mv"><span class="mc-ic">🌟</span><p class="mc-lb">Visión</p><h3>A dónde vamos</h3><p>Ser la agencia de viajes líder en experiencias inolvidables, ofreciendo un servicio de excelencia con integridad y amor, guiados por principios cristianos y con un compromiso inquebrantable con nuestros clientes.</p></div>
+      <div class="mc ml"><span class="mc-ic">💛</span><p class="mc-lb">Valores</p><h3>Lo que nos guía</h3><div class="vt-wrap"><span class="vt">Honestidad</span><span class="vt">Integridad</span><span class="vt">Compromiso</span><span class="vt">Responsabilidad</span><span class="vt">Servicio al prójimo</span><span class="vt">Fe</span><span class="vt">Principios Cristianos</span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DESTINOS DESTACADOS -->
+<section id="destinos" style="background:var(--gl);padding:4.5rem 5%">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+      <div>
+        <p class="stag">Promociones Irresistibles</p>
+        <h2 class="stitle">Descubre Destinos <span>Extraordinarios</span></h2>
+        <div class="sbar"></div>
+        <p class="ssub">Los paquetes más solicitados por nuestros clientes, con vuelo, hotel y experiencias incluidas.</p>
+      </div>
+      <a href="tours-internacionales.html" style="display:inline-flex;align-items:center;gap:.4rem;background:var(--t);color:#fff;padding:.75rem 1.6rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='var(--td)'" onmouseout="this.style.background='var(--t)'">Ver todos los tours →</a>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem">
 
+      <!-- Colombia -->
       <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Colombia%20desde%20US%24595." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=600&q=80" alt="Colombia" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇨🇴 Colombia</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Colombia</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$595</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=600&q=80" alt="Colombia" style="width:100%;height:100%;object-fit:cover;transition:transform .5s" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇨🇴 Colombia</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Colombia</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$595</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
-      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20Brasil%20(Río%20de%20Janeiro)%20desde%20US%241%2C590." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=600&q=80" alt="Brasil" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇧🇷 Brasil</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Brasil — Río de Janeiro</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,590</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+      <!-- Brasil -->
+      <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Brasil%20(Río%20de%20Janeiro)%20desde%20US%241%2C590." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=600&q=80" alt="Brasil" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇧🇷 Brasil</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Brasil — Río de Janeiro</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,590</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
+      <!-- Perú -->
       <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Perú%20desde%20US%241%2C395." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=600&q=80" alt="Perú" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--t);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🔥 Popular</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">🇵🇪 Tour Internacional</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Perú — Machu Picchu</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,395</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=600&q=80" alt="Perú" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--t);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🔥 Popular</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">🇵🇪 Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Perú — Machu Picchu</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,395</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
+      <!-- Panamá -->
       <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Panamá%20desde%20US%241%2C295." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=600&q=80" alt="Panamá" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇵🇦 Panamá</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Panamá</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,295</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=600&q=80" alt="Panamá" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇵🇦 Panamá</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Panamá</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,295</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
+      <!-- Bogotá y Panamá -->
       <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20Bogotá%20y%20Panamá%20desde%20US%241%2C195." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1609670090960-a644da7af5e6?auto=format&fit=crop&w=600&q=80" alt="Bogotá y Panamá" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--t);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">⭐ Combo</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">🇨🇴🇵🇦 Tour Combo</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Bogotá y Panamá</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,195</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1609670090960-a644da7af5e6?auto=format&fit=crop&w=600&q=80" alt="Bogotá y Panamá" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--t);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">⭐ Combo</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">🇨🇴🇵🇦 Tour Combo</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Bogotá y Panamá</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$1,195</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
+      <!-- Europa 4 países -->
       <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20Europa%204%20países%20desde%20US%243%2C595." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=600&q=80" alt="Europa" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇪🇺 Europa</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Europeo Completo</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Europa — 4 Países</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$3,595</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=600&q=80" alt="Europa" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇪🇺 Europa</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Europeo Completo</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Europa — 4 Países</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$3,595</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
+      <!-- Argentina -->
       <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Argentina%20desde%20US%242%2C590." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=600&q=80" alt="Argentina" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇦🇷 Argentina</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Argentina — Buenos Aires</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$2,590</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=600&q=80" alt="Argentina" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇦🇷 Argentina</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Argentina — Buenos Aires</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$2,590</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
+      <!-- Turquía -->
       <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Turquía%20desde%20US%242%2C500." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=600&q=80" alt="Turquía" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇹🇷 Turquía</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Turquía — Estambul</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$2,500</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=600&q=80" alt="Turquía" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇹🇷 Turquía</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Turquía — Estambul</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$2,500</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
+      <!-- Dubai -->
       <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20de%20Dubai%20desde%20US%242%2C995." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubai" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇦🇪 Dubai</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Dubai — Emiratos Árabes</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$2,995</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80" alt="Dubai" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--o);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🇦🇪 Dubai</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Tour Internacional</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">Dubai — Emiratos Árabes</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$2,995</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
+      <!-- República Dominicana -->
       <a href="https://wa.me/8298362020?text=Hola!%20Me%20interesa%20el%20paquete%20República%20Dominicana%20desde%20US%24995." target="_blank" style="text-decoration:none;display:block;background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--bd);transition:all .3s" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 18px 48px rgba(0,0,0,.11)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-        <div style="position:relative;height:190px;overflow:hidden"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="República Dominicana" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div><span style="position:absolute;top:.8rem;left:.8rem;background:var(--t);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🌴 Nacional</span><div style="position:absolute;bottom:.9rem;left:1rem;right:1rem"><p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Punta Cana · Samaná · Puerto Plata</p><p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">República Dominicana</p></div></div>
-        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)"><div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$995</p></div><span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span></div>
+        <div style="position:relative;height:190px;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="República Dominicana" style="width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 55%)"></div>
+          <span style="position:absolute;top:.8rem;left:.8rem;background:var(--t);color:#fff;padding:.28rem .72rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:800;text-transform:uppercase">🌴 Nacional</span>
+          <div style="position:absolute;bottom:.9rem;left:1rem;right:1rem">
+            <p style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:.15rem">Punta Cana · Samaná · Puerto Plata</p>
+            <p style="font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#fff">República Dominicana</p>
+          </div>
+        </div>
+        <div style="padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)">
+          <div><p style="font-size:.62rem;color:var(--gy);font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em">Precio por persona</p><p style="font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:var(--o)">Desde US$995</p></div>
+          <span style="background:var(--t);color:#fff;padding:.45rem 1rem;border-radius:20px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;white-space:nowrap">💬 Cotizar</span>
+        </div>
       </a>
 
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <div class="cta">
   <h2>¿Lista para vivir tu próxima aventura?</h2>
-  <p>Habla con nuestros asesores y recibe tu cotización personalizada sin costo adicional.</p>
-  <a href="https://wa.me/8298362020?text=Hola!%20Quiero%20cotizar%20un%20Tour%20Internacional." class="btn-wt">💬 Obtén tu cotización gratis</a>
+  <p>Habla con uno de nuestros asesores y recibe tu cotización personalizada sin costo adicional.</p>
+  <a href="https://wa.me/8298362020?text=Hola%20Xiabi!%20Quiero%20recibir%20una%20cotización." class="btn-wt">💬 Obtén tu cotización gratis</a>
 </div>
 
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="ct-in">
+    <div>
+      <p class="stag">Contáctanos</p>
+      <h2 class="stitle">Estamos aquí para <span>ayudarte</span></h2>
+      <div class="sbar"></div>
+      <p class="ssub">Nuestro equipo te asesora y diseña el viaje de tus sueños con total transparencia.</p>
+      <div style="margin-top:1.2rem">
+        <div class="cr"><div class="cr-ic">📞</div><div><p class="cr-lb">Teléfono / WhatsApp</p><p class="cr-vl">(829) 836-2020</p></div></div>
+        <div class="cr"><div class="cr-ic">✉️</div><div><p class="cr-lb">Correo</p><p class="cr-vl">info@xiabitravels.com</p></div></div>
+        <div class="cr"><div class="cr-ic">📍</div><div><p class="cr-lb">Ubicación</p><p class="cr-vl">Santo Domingo, Rep. Dom.</p></div></div>
+        <div class="cr"><div class="cr-ic">🕐</div><div><p class="cr-lb">Horario</p><p class="cr-vl">Lun – Vie: 9am – 6pm · Sáb: 9am – 1pm</p></div></div>
+      </div>
+    </div>
+    <div class="cf">
+      <div class="fr"><div class="fg"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div><div class="fg"><label>Apellido</label><input type="text" placeholder="Tu apellido"></div></div>
+      <div class="fg"><label>WhatsApp</label><input type="tel" placeholder="(809) 000-0000"></div>
+      <div class="fg"><label>Correo</label><input type="email" placeholder="tu@email.com"></div>
+      <div class="fg"><label>Servicio de interés</label><select><option value="">Selecciona...</option><option>Excursión Nacional</option><option>Boleto Aéreo</option><option>Tour Internacional</option><option>Crucero</option><option>Resort</option><option>Luna de Miel</option></select></div>
+      <div class="fg"><label>Cuéntanos tu sueño</label><textarea placeholder="¿Destino, personas, fechas?"></textarea></div>
+      <button class="btn-tf" onclick="window.open('https://wa.me/8298362020?text=Hola!%20Quiero%20planificar%20un%20viaje.','_blank')">💬 Enviar por WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="f-gr">
     <div class="f-br">
@@ -374,36 +717,15 @@ footer{background:var(--nv);color:#fff;padding:3.5rem 5% 1.5rem}
         <span class="f-lw-fb">Xiabi Travels</span>
       </div>
       <p>Agencia de viajes guiada por la ética, el compromiso y la fe. Tu confianza es nuestra mayor responsabilidad en cada destino.</p>
-      <div class="f-sc">
-        <a href="https://www.instagram.com/xiabitravels/" class="fsc">IG</a>
-        <a href="https://wa.me/8298362020" class="fsc">WA</a>
-        <a href="#" class="fsc">FB</a>
-      </div>
+      <div class="f-sc"><a href="https://www.instagram.com/xiabitravels/" class="fsc">IG</a><a href="https://wa.me/8298362020" class="fsc">WA</a><a href="#" class="fsc">FB</a></div>
     </div>
-    <div class="f-col"><h4>Menú</h4><ul class="f-lk">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="index.html#nosotros">Nosotros</a></li>
-      <li><a href="index.html#contacto">Contacto</a></li>
-    </ul></div>
-    <div class="f-col"><h4>Servicios</h4><ul class="f-lk">
-      <li><a href="excursiones-nacionales.html">Excursiones Nacionales</a></li>
-      <li><a href="boletos-aereos.html">Boletos Aéreos</a></li>
-      <li><a href="tours-internacionales.html">Tours Internacionales</a></li>
-      <li><a href="cruceros.html">Cruceros</a></li>
-      <li><a href="resorts.html">Resorts</a></li>
-    </ul></div>
-    <div class="f-col"><h4>Contacto</h4><ul class="f-lk">
-      <li><a href="tel:8298362020">(829) 836-2020</a></li>
-      <li><a href="mailto:info@xiabitravels.com">info@xiabitravels.com</a></li>
-      <li><a href="#">Santo Domingo, RD</a></li>
-      <li><a href="https://www.instagram.com/xiabitravels/">@xiabitravels</a></li>
-    </ul></div>
+    <div class="f-col"><h4>Menú</h4><ul class="f-lk"><li><a href="index.html">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+    <div class="f-col"><h4>Servicios</h4><ul class="f-lk"><li><a href="excursiones-nacionales.html">Excursiones Nacionales</a></li><li><a href="boletos-aereos.html">Boletos Aéreos</a></li><li><a href="tours-internacionales.html">Tours Internacionales</a></li><li><a href="cruceros.html">Cruceros</a></li><li><a href="resorts.html">Resorts</a></li></ul></div>
+    <div class="f-col"><h4>Contacto</h4><ul class="f-lk"><li><a href="tel:8298362020">(829) 836-2020</a></li><li><a href="mailto:info@xiabitravels.com">info@xiabitravels.com</a></li><li><a href="#">Santo Domingo, RD</a></li><li><a href="https://www.instagram.com/xiabitravels/">@xiabitravels</a></li></ul></div>
   </div>
-  <div class="f-bt">
-    <p>© 2026 Xiabi Travels · Todos los derechos reservados</p>
-    <p>Diseñado por <span class="aura">Aura Marketing Agency</span></p>
-  </div>
+  <div class="f-bt"><p>© 2026 Xiabi Travels · Todos los derechos reservados</p><p>Diseñado por <span class="aura">Aura Marketing Agency</span></p></div>
 </footer>
+
 <a href="https://wa.me/8298362020?text=Hola%20Xiabi%20Travels!" class="wa">
   <div class="wa-tip">¡Escríbenos!</div>
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
